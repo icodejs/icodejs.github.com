@@ -23,6 +23,8 @@ tagline: Hello world post...
 
 [Added option to specify a custom date when creating post](https://github.com/plusjade/jekyll-bootstrap/pull/37)
 
+[The Ultimate Guide To Getting Started With Jekyll: Part 2](http://danielmcgraw.com/2011/04/18/The-Ultimate-Guide-To-Getting-Started-With-Jekyll-Part-2/)
+
 Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
 
 Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
