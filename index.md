@@ -56,3 +56,7 @@ function object(o) {
   return new F();
 }
 </pre>
+
+## Start dev server
+
+    jekyll --server
