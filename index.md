@@ -29,6 +29,16 @@ Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.ht
 
 Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
+[Building Static Sites with Jekyll](http://net.tutsplus.com/tutorials/other/building-static-sites-with-jekyll/)
+
+[Template Data](https://github.com/mojombo/jekyll/wiki/Template-Data)
+
+[Jekyll Wiki](https://github.com/mojombo/jekyll/wiki)
+
+[Example sites](https://github.com/mojombo/jekyll/wiki/Sites)
+
+[Liquid Extensions](https://github.com/mojombo/jekyll/wiki/liquid-extensions)
+
 
 ## Sample Posts
 
@@ -49,13 +59,32 @@ Here's a sample "posts list".
 
 This code creates a Javascript object (dah)!
 
-<pre class="prettyprint linenums">
+{% highlight javascript linenos %}
+function Route(routes) {
+
+  this.routes = routes || {};
+
+  this.notFound = function (res) {
+    res.writeHead(404, {
+      "Content-Type": "text/plain"
+    });
+    res.write("404 Not Found\n");
+    res.end();
+  };
+
+}
+{% endhighlight %}
+
+
+## Highlighting test
+
+{% highlight javascript linenos %}
 function object(o) {
   function F() {}
   F.prototype = o;
   return new F();
 }
-</pre>
+{% endhighlight %}
 
 ## Start dev server
 
