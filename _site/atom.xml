@@ -4,13 +4,21 @@
  <title>icodejs</title>
  <link href="http://icodejs.github.com/atom.xml" rel="self"/>
  <link href="http://icodejs.github.com"/>
- <updated>2012-03-07T00:32:55+00:00</updated>
+ <updated>2012-03-07T23:49:54+00:00</updated>
  <id>http://icodejs.github.com</id>
  <author>
-   <name>Tahir Jay</name>
+   <name>Jay Tahir</name>
    <email>icodejs@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>My first blog post</title>
+   <link href="http://icodejs.github.com/2012/03/06/my-first-blog-post"/>
+   <updated>2012-03-06T00:00:00+00:00</updated>
+   <id>hhttp://icodejs.github.com/2012/03/06/my-first-blog-post</id>
+   <content type="html">&lt;p&gt;This is just some text that i want to write to see what it looks like. And some &lt;code&gt;hightlighted&lt;/code&gt; text&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Learn Javascript in 9 months</title>

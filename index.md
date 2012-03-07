@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: mysite
 title: Welcome to icodejs!
 tagline: Hello world post...
 ---
