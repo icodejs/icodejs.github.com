@@ -2,7 +2,7 @@
 
 ## Todo
 
-** Add to sidebar / footer **
+**Add to sidebar / footer**
 
 - latest tweets
 - gitHub repos
