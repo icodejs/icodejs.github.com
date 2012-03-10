@@ -1,12 +1,13 @@
 ---
 layout: default
 title: Blog
+pageId: "blog"
 ---
 
 {% include JB/setup %}
 
 {% for post in site.posts limit:15 %}
-  {% include themes/mysite/excerpt.html %}
+  {% include mysite/controls/excerpt.html %}
 {% endfor %}
 
 <div class="archive">

@@ -1,7 +1,8 @@
 ---
-layout: mysite
-title: Welcome to icodejs!
-tagline: Hello world post...
+layout: home
+title: Welcome to {icodejs}
+subTitle: "A place to share thoughts & ideas on Javascript, HTML & CSS."
+pageId: "home"
 ---
 {% include JB/setup %}
 

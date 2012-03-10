@@ -1,0 +1,14 @@
+/*
+	-- reset styles
+*/
+body {
+	padding-top:40px;
+}
+.navbar-inner {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	}
+.content {
+	/*padding: 0px;*/
+	}
