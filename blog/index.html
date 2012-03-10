@@ -1,0 +1,14 @@
+---
+layout: default
+title: Blog
+---
+
+{% include JB/setup %}
+
+{% for post in site.posts limit:15 %}
+  {% include themes/mysite/excerpt.html %}
+{% endfor %}
+
+<div class="archive">
+  <a href="/archive.html">&laquo; Archives</a>
+</div>

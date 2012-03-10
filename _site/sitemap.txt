@@ -1,9 +1,13 @@
 
+http://icodejs.github.com/about/index.html
 http://icodejs.github.com/archive.html
 http://icodejs.github.com/atom.xml
+http://icodejs.github.com/blog/index.html
 http://icodejs.github.com/categories.html
+http://icodejs.github.com/contact/index.html
 http://icodejs.github.com/index.html
 http://icodejs.github.com/pages.html
+http://icodejs.github.com/portfolio/index.html
 http://icodejs.github.com/sitemap.txt
 http://icodejs.github.com/tags.html
 

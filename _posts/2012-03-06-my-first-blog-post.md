@@ -1,5 +1,5 @@
 ---
-layout: blog
+layout: post
 title: "My first blog post"
 category:
 tags: [js, javascript]
