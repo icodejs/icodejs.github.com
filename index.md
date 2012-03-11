@@ -92,24 +92,6 @@ function object(o) {
     jekyll --server
 
 ## Gist test
-<style type="text/css">
-.gist-highlight {
-    border-left: 3ex solid #eee;
-    position: relative;
-}
 
-.gist-highlight pre {
-    counter-reset: linenumbers;
-}
-
-.gist-highlight pre div:before {
-    color: #aaa;
-    content: counter(linenumbers);
-    counter-increment: linenumbers;
-    left: -3ex;
-    position: absolute;
-    text-align: right;
-    width: 2.5ex;
-}
-</style>
+<link href="/css/gist.css" rel="stylesheet"></link>
 <script src="https://gist.github.com/2014200.js"> </script>
