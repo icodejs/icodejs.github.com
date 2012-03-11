@@ -12,7 +12,7 @@ body {
 .masthead {
 	padding-top: 86px;
 	}
-/*.navbar .brand {
+.navbar .brand {
 	padding-right: 0;
 	padding-left: 0;
 	margin-left: 20px;
@@ -23,7 +23,7 @@ body {
 	-webkit-transition: all .2s linear;
 	-moz-transition: all .2s linear;
 	transition: all .2s linear;
-	}*/
+	}
 .content {
 	/*padding: 0px;*/
 	}
