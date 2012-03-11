@@ -17,4 +17,4 @@
 
 - point [http://www.icodejs.com](http://icodejs.github.com/) at [http://icodejs.github.com/](http://icodejs.github.com/)
 - link to no.de site
-
+- Add a code snippet section that integrates with gitHub gist: http://alanhecht.me/. This will pull in code snippets from my gist account.

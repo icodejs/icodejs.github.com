@@ -42,7 +42,7 @@
 
 
 
-<div class="navbar navbar-fixed-top">
+<div class="navbar">
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="/">var i = {code: js}</a>
@@ -146,6 +146,28 @@
 <h2 id='start_dev_server'>Start dev server</h2>
 
 <pre><code>jekyll --server</code></pre>
+
+<h2 id='gist_test'>Gist test</h2>
+<style type='text/css'>
+.gist-highlight {
+    border-left: 3ex solid #eee;
+    position: relative;
+}
+
+.gist-highlight pre {
+    counter-reset: linenumbers;
+}
+
+.gist-highlight pre div:before {
+    color: #aaa;
+    content: counter(linenumbers);
+    counter-increment: linenumbers;
+    left: -3ex;
+    position: absolute;
+    text-align: right;
+    width: 2.5ex;
+}
+</style><script src='https://gist.github.com/2014200.js'> </script>
       </section>
 
       <!-- footer -->
