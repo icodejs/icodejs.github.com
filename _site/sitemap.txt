@@ -7,6 +7,7 @@ http://icodejs.github.com/categories.html
 http://icodejs.github.com/contact/index.html
 http://icodejs.github.com/index.html
 http://icodejs.github.com/pages.html
+http://icodejs.github.com/playpen/index.html
 http://icodejs.github.com/portfolio/index.html
 http://icodejs.github.com/sitemap.txt
 http://icodejs.github.com/tags.html
