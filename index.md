@@ -7,4 +7,4 @@ pageId: "home"
 {% include JB/setup %}
 
 
-** Hello
+** Hello world
