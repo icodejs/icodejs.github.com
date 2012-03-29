@@ -1,3 +1,72 @@
-body {
-	background-image: url(/img/assets/grid-18px-masked.png);
+body, html {
+    background-color:#FFF;
 }
+body {
+	background: url(/img/assets/grid-18px-masked.png) repeat-x;
+}
+.jumbotron {
+    color: #333;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+.jumbotron h1 {
+    display: block;
+    font-size: 81px;
+    font-weight: bold;
+    height: 81px;
+    letter-spacing: -1px;
+    line-height: 81px;
+    margin: 0 0 18px 0;
+    padding-top: 0px;
+    text-align: center;
+    }
+.jumbotron p, #content h2  {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    height: 72px;
+    line-height: 36px;
+    margin: 0 5px 18px 5px;
+    padding-top: 0px;
+    text-align: center;
+    }
+#content h2 {
+    height:auto;
+    text-align:left;
+    margin-bottom:10px;
+    }
+.details {
+    float:left;
+    margin: 0 35px 12px 0;
+    width:290px;
+    }
+.profile p {
+
+    }
+.photo-shaddow {
+    background:url(/img/assets/shaddow.png) no-repeat scroll -2px 100% transparent;
+    width: auto;
+    height: auto;
+    float: left;
+    margin: 0 35px 12px 0;
+    overflow: visible;
+    }
+.photo-holder {
+    padding: 10px 10px 4px 10px;
+    background: #F6F6F6;
+    border: solid 1px #D5D5D5;
+    margin-bottom: 18px;
+    }
+.contact {
+    margin:18px 0 18px;
+    }
+.social-links {
+    list-style:none;
+    margin: 0;
+    }
+.social-links li {
+    float:left;
+    padding-right:5px;
+    }
+li.github {
+    padding:2px 10px 0 0;
+    }

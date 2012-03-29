@@ -24,6 +24,33 @@ body {
     -moz-transition: all .2s linear;
     transition: all .2s linear;
     }
+
+/*
+    content
+*/
 .content {
     /*padding: 0px;*/
     }
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    }
+.hr {
+    margin-top: 0;
+    padding-top: 0;
+    background: url(/img/assets/separator.png) 0 0 repeat-x;
+    height: 2px;
+    margin-bottom: 32px;
+    clear:both;
+    }
+/*
+    footer
+*/
+.footer {
+    clear:both;
+    }
+
+
