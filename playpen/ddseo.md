@@ -11,13 +11,13 @@ pageId: "setup"
 <div>
     <p>The screenshots below show some of the reports created by a tool I built call Datadial Analytics.</p>
 
-    <p>This analytics tool pulls data from the Google Analytics account of Datadial’s SEO clients and
+    <p>This analytics tool pulls data from the Google Analytics accounts of Datadial’s SEO clients and
         creates an array of automated reports displaying things like, Monthly traffic, Visit comparisons,
         Top selling products, Monthly revenue, Top keywords and many more.</p>
 
-    <p>TThis web app was completely built by me, except for the CMS. </p>
+    <p>This web app was built completely by me, except for the CMS. </p>
 
-    <p>Building this Analytics app required the following tasks /skills:</p>
+    <p>Building this Analytics tool required the following tasks /skills:</p>
 
     <ul>
         <li>Integrate with the Google Analytics API </li>
