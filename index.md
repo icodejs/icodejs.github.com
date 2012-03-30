@@ -1,7 +1,7 @@
 ---
 layout: home
 title: '{icodejs}'
-subTitle: "A place to share thoughts & ideas on Javascript, HTML & CSS."
+subTitle: "A place to share thoughts & ideas on JavaScript, HTML & CSS."
 pageId: "home"
 ---
 {% include JB/setup %}
