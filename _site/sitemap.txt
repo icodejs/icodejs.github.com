@@ -7,6 +7,7 @@ http://www.icodejs.com/categories.html
 http://www.icodejs.com/contact/index.html
 http://www.icodejs.com/index.html
 http://www.icodejs.com/pages.html
+http://www.icodejs.com/playpen/ddseo.html
 http://www.icodejs.com/playpen/index.html
 http://www.icodejs.com/playpen/setup.html
 http://www.icodejs.com/portfolio/index.html
