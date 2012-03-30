@@ -30,7 +30,7 @@ pageId: "setup"
 </div>
 <br />
 <h3>Client list</h3>
-<p><img src="/img/ddseo/home.png"></p>
+<p><img src="/img/ddseo/home-screen.png"></p>
 
 <h3>Report list</h3>
 <p><img src="/img/ddseo/reports.png"></p>
