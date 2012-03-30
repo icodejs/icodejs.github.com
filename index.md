@@ -34,7 +34,7 @@ pageId: "home"
     <p>
         Recently my passion for front end development has switched gears and my interest in one page,
         cross platform web apps has lead me in the directions of technologies such as, HTML5, CSS3,
-        Node.js, Backbone.js, real Javascript (e.g. MVC, ECMAScript5, AMD etc) and NoSQL database
+        Node.js, Backbone.js, real Javascript (e.g. MVC, ECMAScript5, AMD etc) and NoSQL databases
         (e.g. CouchDB and MongoDB).
     </p>
 
