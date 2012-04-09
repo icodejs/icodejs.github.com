@@ -1,5 +1,5 @@
 body, html {
-    background-color:#FFF;
+    background-color:#FBFBFC;
 }
 body {
 	background: url(/img/assets/grid-18px-masked.png) repeat-x;
@@ -12,8 +12,15 @@ body {
     color: #333;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
-.jumbotron h1 {
+.jumbotron h1, #content h2, .jumbotron p {
     display: block;
+    text-align: center;
+    padding-top: 0px;
+    }
+.jumbotron h1, #content h2 {
+    -webkit-font-smoothing: antialiased;
+    }
+.jumbotron h1 {
     font-size: 81px;
     font-weight: bold;
     height: 81px;
@@ -21,18 +28,16 @@ body {
     line-height: 81px;
     margin: 0 0 18px 0;
     padding-top: 0px;
-    text-align: center;
+    text-shadow: 3px 3px 2px #EEE;
     }
 .jumbotron p, #content h2  {
-    display: block;
     font-size: 30px;
     font-weight: 300;
     height: 72px;
     line-height: 36px;
     margin: 0 5px 18px 5px;
-    padding-top: 0px;
-    text-align: center;
     }
+
 #content h2 {
     height:auto;
     text-align:left;

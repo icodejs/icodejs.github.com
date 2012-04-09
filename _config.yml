@@ -9,13 +9,13 @@ pygments: true
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : "var i = {code: js}"
+title : "{icodejs}"
 tagline: Javascript is the future
 author :
   name : Jay Tahir
   email : icodejs@gmail.com
-  github : icodejs
-  twitter : 1codejs
+  github : https://github.com/icodejs
+  twitter : https://twitter.com/1codejs
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
@@ -100,7 +100,7 @@ JB :
   analytics :
     provider : google
     google :
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-30537419-1'
     getclicky :
       site_id :
     mixpanel :

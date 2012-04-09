@@ -11,15 +11,16 @@
       <div class="content box clearfix">
 
         <div class="side">
-          &nbsp;
+          <h4>Side bar control</h4>
+          <p>This cotent will be pulled from a control and will be consistent throughout the site.</p>
         </div>
 
         <div class="main">
-          <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
-
+          <div class="page-header">
+            <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
+          </div>
           {{ content }}
         </div>
-
 
       </div>
       <!-- footer -->

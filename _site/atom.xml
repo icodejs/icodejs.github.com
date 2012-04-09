@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>var i = {code: js}</title>
+ <title>{icodejs}</title>
  <link href="http://www.icodejs.com/atom.xml" rel="self"/>
  <link href="http://www.icodejs.com"/>
- <updated>2012-04-09T15:52:10+01:00</updated>
+ <updated>2012-04-09T21:33:39+01:00</updated>
  <id>http://www.icodejs.com</id>
  <author>
    <name>Jay Tahir</name>
