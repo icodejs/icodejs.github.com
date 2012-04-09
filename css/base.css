@@ -4,13 +4,14 @@
 body {
     padding-top:0;
     }
+
+/*
+    -- top nav
+*/
 .navbar-inner {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-    }
-.masthead {
-    padding-top: 86px;
     }
 .navbar .brand {
     padding-right: 0;
@@ -24,9 +25,8 @@ body {
     -moz-transition: all .2s linear;
     transition: all .2s linear;
     }
-
 /*
-    content
+    -- content
 */
 .content {
     /*padding: 0px;*/
@@ -47,7 +47,7 @@ body {
     clear:both;
     }
 /*
-    footer
+    -- footer
 */
 .footer {
     clear:both;
