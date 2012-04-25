@@ -4,7 +4,9 @@ body, html {
 body {
 	background: url(/img/assets/grid-18px-masked.png) repeat-x;
 }
+section {
 
+}
 .masthead {
     padding-top: 86px;
     }
@@ -37,7 +39,15 @@ body {
     line-height: 36px;
     margin: 0 5px 18px 5px;
     }
+/* content */
+.hr {
+    margin-top:32px;
+    }
+#content {
 
+    }
+#inner_content {
+    }
 #content h2 {
     height:auto;
     text-align:left;
@@ -45,8 +55,12 @@ body {
     }
 .details {
     float:left;
-    margin: 0 35px 12px 0;
-    width:290px;
+    margin: 0 45px 12px 0;
+    width:210px;
+    }
+.profile {
+    float: left;
+    width: 440px;
     }
 .profile p {
 
@@ -56,7 +70,7 @@ body {
     width: auto;
     height: auto;
     float: left;
-    margin: 0 35px 12px 0;
+    margin: 0 55px 12px 0;
     overflow: visible;
     }
 .photo-holder {
@@ -71,6 +85,7 @@ body {
 .social-links {
     list-style:none;
     margin: 0;
+    padding:0;
     }
 .social-links li {
     float:left;
