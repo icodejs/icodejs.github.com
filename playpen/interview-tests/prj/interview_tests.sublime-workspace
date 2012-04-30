@@ -1,0 +1,591 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pad",
+				"padding	padding: all"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"fragments",
+				"fragmentsConfig"
+			],
+			[
+				"jq",
+				"jqcode	jQuery add a link to the latest version of jQuery"
+			],
+			[
+				"index",
+				"indexOf"
+			],
+			[
+				"lin",
+				"LINK	Tag"
+			],
+			[
+				"vide",
+				"videos"
+			],
+			[
+				"video",
+				"videoId"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"createServer",
+				"http.createServer(requestListener);"
+			],
+			[
+				"conseo",
+				"console.log();"
+			],
+			[
+				"populate",
+				"populateObject"
+			],
+			[
+				"open",
+				"fs.open(path, flags, mode, callback);"
+			],
+			[
+				"text",
+				"text"
+			],
+			[
+				"p",
+				"p"
+			],
+			[
+				"font",
+				"font"
+			],
+			[
+				"ba",
+				"background: background-color: hex"
+			],
+			[
+				"body",
+				"body"
+			],
+			[
+				"mar",
+				"margin: margin: all"
+			],
+			[
+				"sty",
+				"stylesheet"
+			],
+			[
+				"rel",
+				"rel"
+			],
+			[
+				"hr",
+				"href"
+			],
+			[
+				"di",
+				"div"
+			],
+			[
+				"d",
+				"div"
+			],
+			[
+				"ae",
+				"makehugrid"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"packages",
+				"Package Control: List Packages"
+			],
+			[
+				"package ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"packa ",
+				"Package Control: Install Package"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"package ins",
+				"Package Control: Install Package"
+			],
+			[
+				"lor",
+				"Snippet: Lorem ipsum"
+			],
+			[
+				"sni",
+				"Snippet: html"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"ja",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"save",
+				"Project: Save As"
+			]
+		],
+		"width": 593.0
+	},
+	"console":
+	{
+		"height": 115.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/tyrone/Sites/icodejs.github.com/css/base.css",
+		"/Users/tyrone/Sites/icodejs.github.com/css/home.css",
+		"/Users/tyrone/Sites/icodejs.github.com/_config.yml",
+		"/Users/tyrone/Sites/icodejs.github.com/playpen/index.md",
+		"/Users/tyrone/Sites/icodejs.github.com/playpen/setup.md",
+		"/Users/tyrone/Sites/icodejs.github.com/playpen/ddseo.md",
+		"/Users/tyrone/Sites/icodejs.github.com/_posts/core-samples/2011-12-29-jekyll-introduction.md",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/controls/masthead.html",
+		"/Users/tyrone/Sites/icodejs.github.com/index.md",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/home.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_prj/icodejs.sublime-project",
+		"/Users/tyrone/Sites/icodejs.github.com/.gitignore",
+		"/Users/tyrone/Sites/icodejs.github.com/about/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/sitemap.txt",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/about/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/CNAME",
+		"/Users/tyrone/Sites/icodejs.github.com/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/blog/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/twitter/page.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/default.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/controls/header.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_layouts/page.html",
+		"/Users/tyrone/Sites/icodejs.github.com/contact/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/portfolio/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/playpen/index.html",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/controls/header2.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/default2.html",
+		"/Users/tyrone/Sites/icodejs.github.com/css/docs.css",
+		"/Users/tyrone/Sites/icodejs.github.com/css/bootstrap-responsive.css",
+		"/Users/tyrone/Sites/icodejs.github.com/_layouts/home.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/twitter/default.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_layouts/default.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_layouts/post.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/blog/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/css/base.css",
+		"/Users/tyrone/Sites/icodejs.github.com/_layouts/blog.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/css/gist.css",
+		"/Users/tyrone/Sites/icodejs.github.com/css/prettify.css",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/css/docs.css",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/JB/tags_list",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/controls/excerpt.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_posts/2012-03-05-hello-first-post.md",
+		"/Users/tyrone/Sites/icodejs.github.com/_posts/2012-03-06-my-first-blog-post.md",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/JB/setup",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/mysite/controls/footer.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_layouts/mysite.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/pages.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/index.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/categories.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/archive.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/controls/masthead.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/default.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/controls/header.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/controls/footer.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/home.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/controls/scripts.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/controls/excerpt.html",
+		"/Users/tyrone/Sites/icodejs.github.com/README.md",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/excerpt.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/mysite/blog.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_includes/themes/twitter/post.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/tags.html",
+		"/Users/tyrone/Sites/icodejs.github.com/tahir.md",
+		"/Users/tyrone/Sites/icodejs.github.com/assets/themes/twitter/css/syntax.css",
+		"/Users/tyrone/Sites/icodejs.github.com/_layouts/test.html",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/assets/themes/twitter/css/base.css",
+		"/Users/tyrone/Sites/icodejs.github.com/_site/lessons/2011/12/29/jekyll-introduction/index.html",
+		"/Users/tyrone/Sites/tahir/tests/resourceful.js",
+		"/Users/tyrone/Sites/tahir/public/bootstrap/docs/examples/hero.html",
+		"/Users/tyrone/Sites/tahir/public/controls/scripts.html",
+		"/Users/tyrone/Sites/tahir/lib/common.js",
+		"/Users/tyrone/Sites/tahir/lib/config.js",
+		"/Users/tyrone/Sites/tahir/lib/utils.js",
+		"/Users/tyrone/Sites/tahir/server.js",
+		"/Users/tyrone/Sites/tahir/lib/M25.js",
+		"/Users/tyrone/Sites/tahir/lib/cv.js",
+		"/Users/tyrone/Sites/tahir/lib/builder.js",
+		"/Users/tyrone/Sites/tahir/README",
+		"/Users/tyrone/Sites/tahir/public/controls/admin.html",
+		"/Users/tyrone/Sites/tahir/public/cv/cv_template.js",
+		"/Users/tyrone/Sites/tahir/public/controls/index.html",
+		"/Users/tyrone/Sites/tahir/public/css/base.css",
+		"/Users/tyrone/Sites/tahir/public/controls/masthead.html",
+		"/Users/tyrone/Sites/tahir/tests/notes.txt",
+		"/Users/tyrone/Sites/tahir/package.json",
+		"/Users/tyrone/Sites/tahir/tests/server-backup-20_02_11.js",
+		"/Users/tyrone/Sites/tahir/public/cv/cv.js",
+		"/Users/tyrone/Sites/tahir/.gitignore",
+		"/Users/tyrone/Sites/tahir/lib/mime.js",
+		"/Users/tyrone/Sites/tahir/lib/route66.js",
+		"/Users/tyrone/Sites/tahir/tests/server.js",
+		"/Users/tyrone/Sites/tahir/tests/test.js",
+		"/Users/tyrone/Sites/tahir/node_modules/node-static/lib/node-static/util.js",
+		"/Users/tyrone/Sites/tahir/node_modules/node-static/lib/node-static/mime.js",
+		"/Users/tyrone/Sites/tahir/node_modules/node-static/lib/node-static.js",
+		"/Users/tyrone/Sites/tahir/public/controls/headerTags.html",
+		"/Users/tyrone/Sites/tahir/public/index.html",
+		"/Users/tyrone/Sites/tahir/lib/jquery.js",
+		"/Users/tyrone/Sites/tahir/public/controls/footer.html",
+		"/Users/tyrone/Sites/tahir/tests/plates.js",
+		"/Users/tyrone/Sites/tahir/node_modules/plates/test/api-test.js",
+		"/Users/tyrone/Sites/tahir/lib/zopon_utils.js",
+		"/Users/tyrone/Sites/tahir/lib/zopon_builder.js",
+		"/Users/tyrone/Sites/tahir/.npmignore",
+		"/Users/tyrone/Sites/tahir/server-backup.js",
+		"/Users/tyrone/Sites/tahir/public/admin/index.html",
+		"/Users/tyrone/Sites/tahir/public/mofoblitz/masthead.html",
+		"/Users/tyrone/Sites/tahir/server-live.js",
+		"/Users/tyrone/Sites/tahir/public/cv/cd.js",
+		"/Users/tyrone/Sites/tahir/public/cv/cv.json",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Base File.sublime-settings",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/Default/Global.sublime-settings",
+		"/Users/tyrone/Library/Application Support/Sublime Text 2/Packages/User/Base File.sublime-settings",
+		"/Users/tyrone/Sites/tahir/notes.txt",
+		"/Users/tyrone/Sites/tahir/node_modules/flatiron/package.json",
+		"/Users/tyrone/Sites/tahir/config.json",
+		"/Users/tyrone/Sites/tahir/server2.js",
+		"/Users/tyrone/Sites/tahir/server1.js",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/node_modules/contextify/package.json",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/package.json",
+		"/Users/tyrone/Sites/tahir/prj/notes.txt",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/test/sizzle/index.js",
+		"/Users/tyrone/Sites/tahir/node_modules/jsdom/test/browser/index.js",
+		"/Users/tyrone/Sites/tahir/node_modules/plates/test/common.js",
+		"/Users/tyrone/Sites/tahir/node_modules/plates/test/perf-test.js"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/tyrone/Sites/icodejs.github.com/",
+			"/Users/tyrone/Sites/icodejs.github.com/_includes/JB",
+			"",
+			"/Users/tyrone/Sites/tahir/node_modules/jsdom"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"padding: 10px 10px 4px 10px;\n    background: #F6F6F6;\n    border: solid 1px #D5D5D5;\n    margin-bottom: 18px;  ",
+			"grid-18px-masked.png",
+			"else",
+			"elseif",
+			"HOME_PATH",
+			"themes/",
+			"mysite",
+			"/public/bootstrap/docs/assets",
+			"A place for me to share my thoughts and ideas",
+			"foot",
+			"css",
+			"code",
+			"Twitter Bootstrap",
+			"pygm",
+			"type=\"text/javascript\" ",
+			"fc",
+			"fragmentBuilder",
+			"getFragment",
+			"fragmentBuilder",
+			"');",
+			"mapFunction",
+			"mapperFunction",
+			"mastheadMa",
+			"mastHead",
+			"callback",
+			"utils",
+			"underscored",
+			"key",
+			"trim",
+			"post",
+			"_",
+			"pageProperties",
+			"_",
+			"pageElements",
+			"pump",
+			"utils",
+			"fileContentsText",
+			"data",
+			",",
+			"path",
+			"_mapper",
+			"fragmentsConfig",
+			"keys",
+			"fragmentBuilder",
+			"footer",
+			"res",
+			"Transporter",
+			"requestPath",
+			"}",
+			"this",
+			"/\">",
+			"());",
+			"();",
+			"mastHead",
+			"header_template",
+			"masthead_template",
+			"footer_html",
+			"scripts_html",
+			"main_html",
+			"header_html",
+			"mastHead_html",
+			"scripts_html",
+			"dbConnectionStrings",
+			"getMIME",
+			"ext",
+			"insert",
+			",",
+			"doc",
+			"							// console.log('social links html: ', $('#socialLinks').html());\n							// console.log('social links, first a tag', $('#socialLinks').html());\n							// console.log('plates bind(): ', plates.bind($('#socialLinks').html(), doc.socialLinks, map));\n",
+			"zopon_",
+			"pumpFileToResponse",
+			"serveRawHTML",
+			"serveHTML",
+			"serveIndex",
+			"]);",
+			"						// console.log('hello');\n						// window.weld(window.$('.skills')[0], skills);\n						// console.log(_.keys(weld));\n						// console.log(_.keys(window));",
+			"cv",
+			".</",
+			"console",
+			");",
+			"ico",
+			"url",
+			"conso",
+			"serveFile2",
+			"\n	",
+			"\n		",
+			"'));",
+			"reqUrl",
+			"/bootstrap/",
+			"/bootstrap",
+			"../",
+			"less",
+			"helloMocha",
+			"docs",
+			"the",
+			"CV.destroy('1328356646710', function (err, doc) {\n//   if (err) { throw new(Error)(err) }\n\n//   try {\n// 		console.log('cv: ' + doc.id + 'was destroyed!');\n//   } catch (e) {\n//   	console.log('The document you are trying to delete does not exist!');\n//   }\n// });",
+			");",
+			"doc",
+			"CV.get('1', function (err, cv) {\n//   if (err) { throw new(Error)(err) }\n//   console.log(cv); \n// });",
+			"caret",
+			"ruler",
+			"split",
+			"contextify",
+			");",
+			"map",
+			"));		",
+			"output",
+			"clear",
+			"getHead",
+			"new",
+			"vid",
+			"selected_vid",
+			"console",
+			"mp4",
+			"+\",",
+			"('./",
+			"lib",
+			"vid_id",
+			";",
+			"this.",
+			"videos",
+			"(){",
+			"loadCollection",
+			"load",
+			"the",
+			"data",
+			"colo",
+			"ver"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"",
+			"config",
+			"buildPageControl",
+			"getPageControl",
+			"return callback",
+			"common",
+			"underscored",
+			"pageProperties",
+			"getUTF8Text",
+			"_fragment",
+			"fc",
+			"getFragment",
+			"Route",
+			"requestFilePath",
+			"masthead",
+			"headerTemplate",
+			"mastheadTemplate",
+			"footerTemplate",
+			"scriptTemplate",
+			"mainTemplate",
+			"headerTemplate",
+			"mastheadTemplate",
+			"scriptTemplate",
+			"",
+			"serveRawHTML",
+			"serveFile",
+			" ",
+			"",
+			"/public/bootstrap/",
+			"/bootstrap/docs/",
+			"loadHead",
+			"v",
+			"curr_vid",
+			",",
+			""
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"packages",
+				"node_modules/express/package.json"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 267.0,
+	"status_bar_visible": true
+}
