@@ -29,11 +29,13 @@
  *  Notes
  *  ----------------------------
  *  1. setInterval based on interval
- *  2. use animation to fade out images / adjust opacity
+ *  2. use animation to fade out images / adjust opacity (use inserted div)
  *  3. ajax / REST Api to get media from external source
- *  4. add loading image to body while the background is loading
- *
- *
+ *  4. add ability to save favourite images to counchdb (use REST) (add mouseover hover button).
+       saved images will appear in a list running down the side of the page.
+ *  5. put the images from this page into couch: http://thepaperwall.com/wallpapers/cityscape/big/
+ *  6. add more user feedback similar to what you see in the chrome network consle. users need to
+       know what is going on while they are waiting
  */
 
 (function($, window, document, undefined) {
@@ -41,20 +43,37 @@
     $.fn.mediaBackgrounds = function (custom_options) {
 
         var base    = this,
+            win_width  = 1024,
+            win_height = 1024,
             methods = {
                 init: function (options) {
-                    $(window).on('resize', methods.resize_window);
+                    var $window = $(window);
+
+                    win_width  = $window.width(),
+                    win_height = $window.height();
+
+                    $window.on('resize', methods.resize_window);
+
                     return base.each(function () {
                         methods.get_bg($(this));
                     });
                 },
                 destroy: function () {
-                    return this.each(function () {
-
+                    return base.each(function () {
+                        // ...
                     })
                 },
                 resize_window: function () {
-                    console.log($(this).width() + ' x ' + $(this).height());
+                    var $this  = $(this);
+
+                        win_width  = $this.width(),
+                        win_height = $this.height();
+
+                    console.log(win_width + ' x ' + win_height);
+
+                    return base.each(function () {
+                        $(this).css({'height': win_height});
+                    });
                 },
                 get_bg: function (elem) {
                     var url = '',
@@ -68,9 +87,9 @@
                         url = 'http://ajax.googleapis.com'
                             + '/ajax/services/search/images'
                             + '?v=1.0'
-                            + '&q=' + options.search_term
+                            + '&q=' + methods.get_random_search_term()
                             + '&callback=?'                                 // for jsonp
-                            + '&imgsz=xxlarge|huge'                         // |huge
+                            + '&imgsz=xxlarge|huge'                         // |huge (make this optional)
                             + '&as_filetype=png|jpg'
                             + '&imgtype=photo'
                             + '&rsz=8'                                      // max results per page
@@ -78,16 +97,17 @@
 
                         $.getJSON(url, function (data, textStatus) {
                             var img = '',
-                                index;
+                                index,
+                                bg = {};
 
                             if (textStatus === 'success') {
                                 try {
                                     if (data.responseData.results.length > 0) {
-                                        console.log('estimatedResultCount: ', data.responseData.cursor.estimatedResultCount);
-                                        console.log('results count: ', data.responseData.results.length);
                                         index = methods.get_random_int(0, data.responseData.results.length -1);
                                         img   = data.responseData.results[index];
-                                        methods.set_bg({bg_url: img.url}, elem);
+
+                                        bg = {bg_url: img.url};
+                                        methods.set_bg(bg, elem);
                                     }
                                 } catch (e) {
                                     console.log(e.toString(), e);
@@ -104,12 +124,13 @@
 
                     } else { // media_type === img
                         if (data && data.bg_url) {
-                            methods.pre_load_img(data.bg_url, elem, function () {
+                            methods.pre_load_img(data.bg_url, elem, 0, function () {
                                 elem.css({
                                     'background-image': 'url("' + data.bg_url + '")',
                                     'background-position': 'top',
-                                    'background-repeat': 'repeat'
-                                }, 0);
+                                    'background-repeat': 'repeat',
+                                    'height': $(window).height()
+                                });
                             });
                         }
                     }
@@ -120,15 +141,19 @@
                 get_random_int: function (min, max)  {
                   return Math.floor(Math.random() * (max - min + 1)) + min;
                 },
-                pre_load_img: function (src_url, elem, callback, delay) {
+                pre_load_img: function (src_url, elem, delay, callback) {
                     $('<img />')
                         .attr('src', options.loading_image)
                         .addClass('loader')
                         .appendTo(elem);
 
+                    // load the background image, hide it, append to the body.
+                    // that way the images is loaded and cached, ready for use.
+
                     $(new Image())
-                        .hide().load(function () {
-                            if (this.width >= 1024 && this.height >= 1024) { // filter out small image
+                        .hide()
+                        .load(function () {
+                            if (this.width >= win_width && this.height >= win_height) { // filter out small image
                                 console.log(this.width + 'x' + this.height);
                                 setTimeout(function () {
                                     elem.find('img').fadeOut(500, function () { // remove loader image
@@ -139,16 +164,31 @@
                                  methods.get_bg(elem);
                              }
                         })
-                        .attr('src', src_url).appendTo('body')
+                        .attr('src', src_url)
+                        .appendTo('body')
                         .error(function () {
                             console.log('error occured while trying to load this image');
                             methods.get_bg(elem);
                         });
+                },
+                get_random_search_term: function () {
+                    var index = 0,
+                        st    = options.search_terms,
+                        term  = '';
+
+                    if (st.length === 1) {
+                        return methods.parse_search_term(st[index]);
+                    } else {
+                        index = methods.get_random_int(0, st.length -1);
+                        term = methods.parse_search_term(st[index]);
+                        console.log('term: ', term);
+                        return term;
+                    }
                 }
             },
             options = $.extend({
                 loading_image: 'img/loader.gif',
-                search_term: methods.parse_search_term('smash magazine wallpaper'),
+                search_terms: ['cityscape wallpaper', 'forest waterfall', 'sky airplane photo', 'space wallpaper', 'rivers lakes', 'thepaperwall cityscape wallpapers'],
                 media_type: 'img',                                                      // or colour, video
                 media_collection: ['#000000', '#ffffff', '#f0f'],
                 media_manipulation_func: function (bmc) { },                            // pass in media coll
