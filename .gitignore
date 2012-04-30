@@ -9,3 +9,6 @@ Thumbs.db
 .rbenv-version
 .rvmrc
 _prj/*
+_site/playpen/interview-tests/prj/*
+playpen/interview-tests/prj/*
+
