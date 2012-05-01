@@ -1,49 +1,18 @@
 /**
  *
- * Demo URL: http://seo-stats-demo.datadial.net/test/tj/background/
+ *  Media Backgrounds by Jay Esco 2012
  *
- *  This plugin will take a media type (colour, img, video).
- *  - Images: collection of URLs
- *  - Colour: hex values
- *  - Video: object with video type (youtube, vimeo) and url
- *
- *  The plugin will allow the user to pass in a REST url so that media can be
- *  pulled in via ajax.
- *
- *  e.g.: https://developers.google.com/image-search/v1/jsondevguide#json_reference
- *
- *  The media manipulation will allow you to load in tweak the returned html for
- *  for the videos like, remove chrome.
- *
- *  Must also detect the resizing of the browser.
- *
- *  The background may have to be an absolutely positioned div with a z-index
- *  that allows it to sit behind everything else on the page.
- *
- *  It will be possible to pass in a function that will take the returned
- *  JSON and return JSON that the plugin can use.
- *
- *  Also consider using an absolutly positioned div with 100% height and width
- *  The set the background of that and set z-index so that is sits at the back
- *
- *  Notes
- *  ----------------------------
- *  1. setInterval based on interval
- *  2. use animation to fade out images / adjust opacity (use inserted div)
- *  3. ajax / REST Api to get media from external source
- *  4. add ability to save favourite images to counchdb (use REST) (add mouseover hover button).
-       saved images will appear in a list running down the side of the page.
- *  5. put the images from this page into couch: http://thepaperwall.com/wallpapers/cityscape/big/
- *  6. add more user feedback similar to what you see in the chrome network consle. users need to
-       know what is going on while they are waiting
  */
 
 (function($, window, document, undefined) {
 
     $.fn.mediaBackgrounds = function (custom_options) {
 
-        var base    = this,
-            win_width  = 1024,
+        var base = this,
+            $body = null,
+            $bg_container = null,
+            $keypress_detector = null,
+            win_width = 1024,
             win_height = 1024,
             methods = {
                 init: function (options) {
@@ -51,17 +20,36 @@
 
                     win_width  = $window.width(),
                     win_height = $window.height();
-
                     $window.on('resize', methods.resize_window);
 
                     return base.each(function () {
-                        methods.get_bg($(this));
+                        $body = $(this)
+                            .height(win_height)
+                            .on('click', function (e) {
+                                e.preventDefault();
+                                $keypress_detector.focus()
+                            });
+
+                        $keypress_detector = $('<input />')
+                            .attr({id: 'txtInput', type: 'text'})
+                            .addClass('keypress_detector')
+                            .focus()
+                            .on('keypress', function (e) {
+                                e.preventDefault();
+                                console.log(e.which);
+                                if (e.which === 32) {
+                                    methods.update_ui($bg_container);
+                                }
+                            }).appendTo($body);
+
+                        $bg_container = $('<div />')
+                            .addClass('bg_container')
+                            .height(win_height)
+                            .hide()
+                            .prependTo($body);
+
+                        methods.get_bg($bg_container);
                     });
-                },
-                destroy: function () {
-                    return base.each(function () {
-                        // ...
-                    })
                 },
                 resize_window: function () {
                     var $this  = $(this);
@@ -70,10 +58,10 @@
                     win_height = $this.height();
 
                     console.log(win_width + ' x ' + win_height);
+                    console.log($bg_container);
 
-                    return base.each(function () {
-                        $(this).css({'height': win_height});
-                    });
+                    $bg_container.css({'height': win_height});
+                    $body.css({'height': win_height});
                 },
                 get_bg: function (elem) {
                     var url = '',
@@ -129,11 +117,20 @@
                                     'background-image': 'url("' + data.bg_url + '")',
                                     'background-position': 'top',
                                     'background-repeat': 'repeat',
-                                    'height': $(window).height()
-                                });
+                                    'height': win_height
+                                }).fadeIn(500);
                             });
+                            $keypress_detector.focus();
                         }
                     }
+                },
+                update_ui: function (elem) {
+
+
+                    elem.fadeOut(500, function () {
+                        methods.get_bg(elem);
+                    });
+
                 },
                 parse_search_term: function (term) {
                     return term.split(' ').join('+');
@@ -145,7 +142,7 @@
                     $('<img />')
                         .attr('src', options.loading_image)
                         .addClass('loader')
-                        .appendTo(elem);
+                        .appendTo($body);
 
                     // load the background image, hide it, append to the body.
                     // that way the images is loaded and cached, ready for use.
@@ -156,7 +153,7 @@
                             if (this.width >= win_width && this.height >= win_height) { // filter out small image
                                 console.log(this.width + 'x' + this.height);
                                 setTimeout(function () {
-                                    elem.find('img').fadeOut(500, function () { // remove loader image
+                                    $body.find('img.loader').fadeOut(500, function () { // remove loader image
                                         callback();
                                     }).remove();
                                 }, delay);
@@ -165,7 +162,7 @@
                              }
                         })
                         .attr('src', src_url)
-                        .appendTo('body')
+                        .prependTo('body')
                         .error(function () {
                             console.log('error occured while trying to load this image');
                             methods.get_bg(elem);
@@ -184,11 +181,23 @@
                         console.log('term: ', term);
                         return term;
                     }
+                },
+                destroy: function () {
+                    return base.each(function () {
+                        // ...
+                    })
                 }
             },
             options = $.extend({
                 loading_image: 'img/loader.gif',
-                search_terms: ['cityscape wallpaper', 'forest waterfall', 'sky airplane photo', 'space wallpaper', 'rivers lakes', 'thepaperwall cityscape wallpapers'],
+                search_terms: [
+                    'cityscape wallpaper',
+                    'forest waterfall',
+                    'sky airplane photo',
+                    'space wallpaper',
+                    'rivers lakes',
+                    'thepaperwall cityscape wallpapers'
+                    ],
                 media_type: 'img',                                                      // or colour, video
                 media_collection: ['#000000', '#ffffff', '#f0f'],
                 media_manipulation_func: function (bmc) { },                            // pass in media coll
