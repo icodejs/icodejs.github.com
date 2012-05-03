@@ -14,7 +14,7 @@ pageId: "home"
     </div>
 
     <div class="details">
-        <h2>Jay Tahir</h2>
+        <h2>Jay Esco</h2>
         <p>Web developer (Full stack)</p>
 
         <div class="contact">
