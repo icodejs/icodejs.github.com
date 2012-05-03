@@ -7,14 +7,52 @@
 
 (function($, window, document, undefined) {
 
+    var helpers = (function () {
+        if (typeof Array.prototype.contains  !== 'function') {                                      // stops the same image from being saved twice
+            Array.prototype.contains = function (needle, prop) {
+                var i = this.length;
+                while (i--) {
+                    if (prop) {
+                        if (this[i][prop] === needle) return true;
+                    } else {
+                        if (this[i] === needle) return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        $.xhrPool = [];
+        $.xhrPool.abortAll = function () {                                                          // stop multilpe ajax requests from running
+            $(this).each(function (idx, jqXHR) {
+                jqXHR.abort();
+            });
+            $.xhrPool.length = 0;
+        };
+
+        $.ajaxSetup({
+            beforeSend: function (jqXHR) {
+                $.xhrPool.push(jqXHR);
+            },
+            complete: function (jqXHR) {
+                var index = $.xhrPool.indexOf(jqXHR);
+                if (index > -1) {
+                    $.xhrPool.splice(index, 1);
+                }
+            }
+        });
+    }());
+
     $.fn.mediaBackgrounds = function (custom_options) {
 
         var base = this,
             $body = null,
             $bg_container = null,
             $keypress_detector = null,
+            $pic_info = null,
             win_width = 1024,
             win_height = 1024,
+            bg_history = [],                                                                        // history of every successfull image
             methods = {
                 init: function (options) {
                     var $window = $(window);
@@ -23,12 +61,16 @@
                     win_height = $window.height();
                     $window.on('resize', methods.resize_window);
 
+                    $pic_info = $('.pic_info');
+
                     return base.each(function () {
                         $body = $(this)
                             .height(win_height)
                             .on('click', function (e) {
-                                e.preventDefault();
-                                $keypress_detector.focus()
+                                if (e.target.id !== 'controls' && e.target.parentElement.id !== 'controls') {
+                                    $keypress_detector.focus()
+                                    methods.save($(this).find('.bg_container')); // change this to a button
+                                }
                             });
 
                         $keypress_detector = $('<input />')
@@ -37,7 +79,7 @@
                             .focus()
                             .on('keypress', function (e) {
                                 e.preventDefault();
-                                console.log(e.which);
+
                                 if (e.which === 32) {
                                     methods.update_ui($bg_container);
                                 }
@@ -61,7 +103,7 @@
                     $bg_container.css({'height': win_height});
                     $body.css({'height': win_height});
 
-                    console.log(win_width + ' x ' + win_height);
+                    debug('resize_window', ['window dimensions: ' + win_width + ' x ' + win_height]);
                 },
                 get_bg: function (elem) {
                     var url = '',
@@ -82,6 +124,8 @@
                         .append($('<img />').attr('src', options.loading_image))
                         .appendTo($body);
 
+                    $.xhrPool.abortAll();
+
                     $.getJSON(url, function (data, textStatus) {
                         var img   = '',
                             index = 0,
@@ -89,9 +133,11 @@
 
                         if (textStatus === 'success') {
                             try {
-                                if (data.responseData.results && data.responseData.results.length > 0) {
-                                    index = methods.get_random_int(0, data.responseData.results.length -1);
-                                    img   = data.responseData.results[index];
+                                var res = data.responseData.results;
+
+                                if (res && res.length > 0) {
+                                    index = methods.get_random_int(0, res.length -1);
+                                    img   = res[index];
                                     bg    = {bg_url: img.url};
                                     methods.set_bg(bg, elem);
                                 }
@@ -102,38 +148,42 @@
                     });
                 },
                 pre_load_img: function (src_url, elem, delay, callback) {
-                    // load the background image, hide it, append to the body.
-                    // that way the images is loaded and cached, ready for use.
-
                     $body.find('img.preloaded').remove();                                           // remove this for now but in future we might keep them
 
-                    $(new Image())
+                    $(new Image())                                                                  // load image, hide it, append to the body.
                         .hide()
-                        .load(function () {
-                            console.log(this.width + 'x' + this.height);
+                        .load(function () {                                                         // images are loaded and cached ready for use
+                            var img = this;
 
-                            if (this.width < win_width || this.height < win_height) {               // filter out small image
+                            methods.set_pic_info('pre_load_img',
+                                ['loaded image dims: ' + img.width + ' x ' + img.height]);
+
+                            if (img.width < win_width || img.height < win_height) {                 // filter out small image
                                 return callback({err: 'image returned is too small'});
                             }
 
                             setTimeout(function () {
-                                $body.find('.loader').fadeOut(1000, function () {                 // remove loader image
-                                    callback(null);
+                                $body.find('.loader').fadeOut(1000, function () {                   // remove loader image
+                                    callback(null,
+                                        {
+                                            width: img.width,
+                                            height: img.height,
+                                            url: src_url
+                                        });
                                 }).remove();
                             }, delay);
-
                         })
                         .addClass('preloaded')
                         .attr('src', src_url)
                         .prependTo('body')
                         .error(function () {
-                            console.log('error occured while trying to load this image');
+                            methods.set_pic_info('pre_load_img', ['error occured while trying to load this image']);
                             return callback({err: 'error occured while trying to load this image'});
                         }); // end JQ new Image
                 },
                 set_bg: function (data, elem) {
                     if (data && data.bg_url) {
-                        methods.pre_load_img(data.bg_url, elem, 0, function (err) {
+                        methods.pre_load_img(data.bg_url, elem, 0, function (err, img_dims) {
 
                             if (err) {
                                 return methods.get_bg(elem);
@@ -150,6 +200,7 @@
                                     'background-repeat': 'repeat',
                                     'height': win_height
                                 })
+                                .data('img_dims', img_dims)
                                 .prependTo($body);
 
                             old_bg_containers.fadeOut(1000, function () {
@@ -167,7 +218,7 @@
                     return term.split(' ').join('+');
                 },
                 get_random_int: function (min, max)  {
-                  return Math.floor(Math.random() * (max - min + 1)) + min;
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
                 },
                 get_random_search_term: function () {
                     var index = 0,
@@ -179,15 +230,39 @@
                     } else {
                         index = methods.get_random_int(0, st.length -1);
                         term = methods.parse_search_term(st[index]);
-                        console.log('term: ', term);
+
+                        methods.set_pic_info('get_random_search_term', ['term: ' + term]);
+
                         return term;
+                    }
+                },
+                save: function (elem) {
+                    var url = elem.data('img_dims').url;
+
+                    if (!bg_history.contains(url, 'url')) {
+                        bg_history.push(elem.data('img_dims'));
+                        debug('save', ['image history has been updated!'], bg_history);             // everytime this changes the view needs to be updated
                     }
                 },
                 destroy: function () {
                     return base.each(function () {
                         // ...
                     })
-                }
+                },
+                set_pic_info: function (context, lines, data) {
+                    if ($pic_info.find('li').length === 0) {
+                         $pic_info.fadeIn(500);
+                    } else if ($pic_info.find('li').length >= 20) {
+                        $pic_info.fadeOut(500, function () {
+                            $(this).html('').fadeIn(500);
+                        });
+                    }
+
+                    for (var i = 0; i < lines.length; i += 1) {
+                        $pic_info.append('<li>' + lines[i] + '</li>')
+                    }
+                    $pic_info.append('<li><hr /></li>');
+                },
             },
             options = $.extend({
                 loading_image: 'img/loader.gif',
@@ -199,22 +274,41 @@
                     'space stars wallpaper',
                     'space planets wallpaper',
                     'muscle cars',
-                    'bmx',
                     'tokyo japan city',
                     'adult swim wallpaper',
                     'thepaperwall cityscape wallpapers',
                     'akira wallpaper',
                     'high res background textures',
-                    'high res background wallpapers'
+                    'high res background wallpapers',
+                    'architectural photography wallpapers',
+                    'Street photography wallpapers',
+                    'macro photography wallpapers',
+                    'Aerial photography wallpapers',
+                    'Black and White photography wallpapers',
+                    'Night photography wallpapers',
+                    'dream-wallpaper.com'
                     ],
                 media_type: 'img',                                                                  // or colour, video
-                media_collection: ['#000000', '#ffffff', '#f0f'],
+                media_collection: [],
                 media_manipulation_func: function (bmc) { },                                        // pass in media coll
                 interval: 5000,                                                                     // 5 secs
+                user_id: -1,
                 rest_url: ''
             }, custom_options);
 
         methods.init();
+
+        function debug(context, lines, data) {
+            console.log('');
+            console.log('+++++++ ' + context + ' +++++++');
+
+            for (var i = 0; i < lines.length; i += 1) {
+                console.log(lines[i]);
+                data && console.log(data);
+                console.log('------------------------------');
+                console.log('');
+            }
+        }
     }
 
-}(jQuery, window, document));
+} (jQuery, window, document));
