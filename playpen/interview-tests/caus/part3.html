@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Caus Test - JavaScript: Part 2</title>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/base.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript: Part 3</h1>
+        <h2>Question:</h2>
+        <p>
+            Extending your answer to Part 2, suppose we now want to allow clients
+            to receive noti"cations even if they registered themselves after such
+            notification had been broadcast. Provide a simple implementation,
+            noting any potential performance concerns.
+        </p>
+
+        <h2>Answer:</h2>
+        <p>
+            Possible performance concerns are that there may be a large amount
+            of published events that new subscriber are given when first subscribing.
+            With each new subscriber this becomes more apparent.
+        </p>
+
+    <pre class="prettyprint linenums lang-js">
+
+        var Component = function (config) {
+
+            var self = this,
+                subscriptions   = {},
+                subscription_id = -1,
+                past_notifications = [];
+
+            //
+            // augment the Component object with the properties in the config object
+            //
+
+            for (property in config) {
+                self[property] = config[property];
+            }
+
+            // publish events / notifications
+            this.publish = function (event_name, args) {
+
+                //
+                // if the event object literal does not have a property
+                // that corresponds to 'event_name' the return false.
+                //
+
+                if (!subscriptions[event_name]) {
+                    return false;
+                }
+
+                var subscribers = subscriptions[event_name],
+                    count       = subscribers ? subscribers.length : 0;
+
+                while (count--) {
+                    subscribers[count].func(event_name, args);
+                }
+
+                //
+                // keep track of past notifications
+                //
+                past_notifications.push({event_name: event_name, args: args});
+
+                return true;
+            }; // end publish
+
+            this.subscribe = function (event_name, func) {
+                if (!subscriptions[event_name]) {
+                    subscriptions[event_name] = [];
+                }
+
+                var token = (++subscription_id).toString();
+
+                subscriptions[event_name].push({
+                    token: token,
+                    func: func
+                });
+
+                //
+                // if we have any past notfications that the new subscriber has
+                // subscribed to, then publish them.
+                //
+
+                if (past_notifications.length) {
+                    for (var i = 0, len = past_notifications.length; i < len; i += 1) {
+                        var pn = past_notifications[i];
+                        if (event_name === pn.event_name) {
+                            func(pn.event_name, pn.args);
+                        }
+                    }
+                }
+
+                return token;
+            }; // end subscribe
+
+            this.unsubscribe = function (func) {
+                for (var s in subscriptions) {
+                    if (subscriptions[s]) {
+                        for (var i = 0, len = subscriptions[s].length; i < len; i +=1) {
+                            if (subscriptions[s][i].func === func) {
+                                subscriptions[s].splice(i, 1);
+                                return func;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }; // end unsubscribe
+
+        };
+
+        var Client1 = function (id) {
+            return {
+                display_notification: function (event_name, data) {
+                    console.log("client id: ", id, " | event_name = ", event_name, " | data = ", data);
+                }
+            };
+        };
+        var Client2 = function (id) {
+            return {
+                display_notification: function (event_name, data) {
+                    console.log("client id: ", id, " | event_name = ", event_name, " | data = ", data);
+                }
+            };
+        };
+        var Client3 = function (id) {
+            return {
+                display_notification: function (event_name, data) {
+                    console.log("client id: ", id, " | event_name = ", event_name, " | data = ", data);
+                }
+            };
+        };
+
+        var client1 = new Client1('client1');
+        var client2 = new Client2('client2');
+        var pubsub_component = new Component({id: "XF-254", list: ["Item 1", "Item 2", "Item 3"]});
+
+        pubsub_component.subscribe('test_event', client1.display_notification);
+        pubsub_component.subscribe('test_event', client2.display_notification);
+
+        pubsub_component.publish('test_event', 'hello world!');
+        pubsub_component.publish('test_event', 'changing to ZX-SPEC');
+
+        var client3 = new Client3('client3');
+        pubsub_component.subscribe('test_event', client3.display_notification);
+        pubsub_component.publish('test_event', 'new client, client3 added');
+
+        pubsub_component.unsubscribe(client1.display_notification);
+        // This will fail for client1
+        pubsub_component.publish('test_event', 'client1 is unsubscribed! Client1 will not be notified.');
+    </pre>
+    </div>
+    <script type="text/javascript">
+
+        var Component = function (config) {
+
+            var self = this,
+                subscriptions   = {},
+                subscription_id = -1,
+                past_notifications = [];
+
+            //
+            // augment the Component object with the properties in the config object
+            //
+
+            for (property in config) {
+                self[property] = config[property];
+            }
+
+            // publish events / notifications
+            this.publish = function (event_name, args) {
+
+                //
+                // if the event object literal does not have a property
+                // that corresponds to 'event_name' the return false.
+                //
+
+                if (!subscriptions[event_name]) {
+                    return false;
+                }
+
+                var subscribers = subscriptions[event_name],
+                    count       = subscribers ? subscribers.length : 0;
+
+                while (count--) {
+                    subscribers[count].func(event_name, args);
+                }
+
+                //
+                // keep track of past notifications
+                //
+                past_notifications.push({event_name: event_name, args: args});
+
+                return true;
+            }; // end publish
+
+            this.subscribe = function (event_name, func) {
+                if (!subscriptions[event_name]) {
+                    subscriptions[event_name] = [];
+                }
+
+                var token = (++subscription_id).toString();
+
+                subscriptions[event_name].push({
+                    token: token,
+                    func: func
+                });
+
+                //
+                // if we have any past notfications that the new subscriber has
+                // subscribed to, then publish them.
+                //
+
+                if (past_notifications.length) {
+                    for (var i = 0, len = past_notifications.length; i < len; i += 1) {
+                        var pn = past_notifications[i];
+                        if (event_name === pn.event_name) {
+                            func(pn.event_name, pn.args);
+                        }
+                    }
+                }
+
+                return token;
+            }; // end subscribe
+
+            this.unsubscribe = function (func) {
+                for (var s in subscriptions) {
+                    if (subscriptions[s]) {
+                        for (var i = 0, len = subscriptions[s].length; i < len; i +=1) {
+                            if (subscriptions[s][i].func === func) {
+                                subscriptions[s].splice(i, 1);
+                                return func;
+                            }
+                        }
+                    }
+                }
+                return false;
+            }; // end unsubscribe
+
+        };
+
+        var Client1 = function (id) {
+            return {
+                display_notification: function (event_name, data) {
+                    console.log("client id: ", id, " | event_name = ", event_name, " | data = ", data);
+                }
+            };
+        };
+        var Client2 = function (id) {
+            return {
+                display_notification: function (event_name, data) {
+                    console.log("client id: ", id, " | event_name = ", event_name, " | data = ", data);
+                }
+            };
+        };
+        var Client3 = function (id) {
+            return {
+                display_notification: function (event_name, data) {
+                    console.log("client id: ", id, " | event_name = ", event_name, " | data = ", data);
+                }
+            };
+        };
+
+        var client1 = new Client1('client1');
+        var client2 = new Client2('client2');
+        var pubsub_component = new Component({id: "XF-254", list: ["Item 1", "Item 2", "Item 3"]});
+
+        pubsub_component.subscribe('test_event', client1.display_notification);
+        pubsub_component.subscribe('test_event', client2.display_notification);
+
+        pubsub_component.publish('test_event', 'hello world!');
+        pubsub_component.publish('test_event', 'changing to ZX-SPEC');
+
+        var client3 = new Client3('client3');
+        pubsub_component.subscribe('test_event', client3.display_notification);
+        pubsub_component.publish('test_event', 'new client, client3 added');
+
+        pubsub_component.unsubscribe(client1.display_notification);
+        // This will fail for client1
+        pubsub_component.publish('test_event', 'client1 is unsubscribed! Client1 will not be notified.');
+    </script>
+    <script src="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"></script>
+</body>
+</html>
+

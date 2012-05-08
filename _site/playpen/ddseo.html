@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8">
+    <title>Datadial Analytics</title>
+    
+    <meta name="author" content="Jay Esco">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <!-- my site css -->
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/syntax.css" rel="stylesheet">
+
+    <!-- Le fav and touch icons -->
+    <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+    <link href="/css/default.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- masthead -->
+    
+
+
+
+
+
+
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">{icodejs}</a>
+      <!-- <ul class="nav">
+        <li class=''><a href="/">Home</a></li>
+        <li class=''><a href="/blog/">Blog</a></li>
+        <li class=''><a href="/contact/">Contact</a></li>
+        <li class=''><a href="/about/">About</a></li>
+        <li class=''><a href="/portfolio/">Portfolio</a></li>
+      </ul> -->
+    </div>
+  </div>
+</div>
+    <div class="container">
+      <div class="content box clearfix">
+
+        <div class="side">
+          <!-- side -->
+          <h4>Latest blog post</h4>
+<ul>
+    
+      <li><a href="/2012/03/06/my-first-blog-post">My first blog post</a></li>
+    
+</ul>
+
+<!--
+    Homepage / side bar
+
+    The homepage will have brief snappy information:
+    Summarise the purpose of the site and who the author is
+    Link to the all the most important pages
+    About
+    Profile / Portfolio
+    Latest
+    Blog post
+    Delicious link: http://feeds.delicious.com/v2/json/icodejs?count=10 - http://delicious.com/developers
+    Tweet
+    Commit
+    Youtube saved vid
+    Vimeo saved vid
+    Brief contact info / link to contact page
+ -->
+        </div>
+
+        <div class="main">
+          <div class="page-header">
+            <h1>Datadial Analytics <small></small></h1>
+          </div>
+          <h2 id='uses_the_google_analytics_api_to_automate_client_reporting'>Uses the Google Analytics API to automate client reporting</h2>
+<div>
+    <p>The screenshots below show some of the reports created by a tool I built called Datadial Analytics.</p>
+
+    <p>This analytics tool pulls data from the Google Analytics accounts of Datadial’s SEO clients and
+        creates an array of automated reports displaying things like, Monthly traffic, Visit comparisons,
+        Top selling products, Monthly revenue, Top keywords and many more.</p>
+
+    <p>This web app was built completely by me, except for the CMS. </p>
+
+    <p>Building this Analytics tool required the following tasks /skills:</p>
+
+    <ul>
+        <li>Integration with the Google Analytics API </li>
+        <li>Creation of the relational database that stores all the application data</li>
+        <li>Domain and data access logic that drives the business layer</li>
+        <li>Design skill and the ability to structure the UI using HTML and CSS</li>
+        <li>Integration with Google charts and Highcharts Javascript libraries</li>
+        <li>Behavioural layer that facilitates user interaction using JavaScript, JQuery and Ajax</li>
+    </ul>
+</div><br /><style type='text/css'>
+    #ddseoCarousel {
+        width:640px;
+        }
+    .item img {
+        width:640px;
+        height:538px;
+        }
+    .carousel-control {
+        top: 47%;
+        }
+</style><div class='carousel slide' id='ddseoCarousel'>
+    <div class='carousel-inner'>
+      <div class='item active'>
+        <img src='/img/ddseo/home-brw.png' height='538' alt='' width='640' />
+        <div class='carousel-caption'>
+          <h4>Home page</h4>
+          <p>Choose the client you are interested in. Each mini graph shows a snapshot of the site visits over the last sixty days.</p>
+        </div>
+      </div>
+      <div class='item'>
+        <img src='/img/ddseo/report-details-brw.png' alt='' />
+        <div class='carousel-caption'>
+          <h4>Report edit screen</h4>
+          <p>Within this section users can choose the reports they would like to add. Once added, reports can be customised based on date range, title, annotation and sort order.</p>
+        </div>
+      </div>
+      <div class='item'>
+        <img src='/img/ddseo/loading-brw.png' alt='' />
+        <div class='carousel-caption'>
+          <h4>Viewing screen (Loading)</h4>
+          <p>Reports are loaded in batches of six using Ajax. This is capped at six due to the limited amount of concurrent HTTP requests imposed by most modern browsers.</p>
+        </div>
+      </div>
+      <div class='item'>
+        <img src='/img/ddseo/revenue-graph-brw.png' alt='' />
+        <div class='carousel-caption'>
+          <h4>Visit graph / Yearly traffic comparison</h4>
+          <p>Comparison of the visits between September - February 2011/2012 and September - February 2010/2011. Comparison of various metric to the previous year.</p>
+        </div>
+      </div>
+      <div class='item'>
+        <img src='/img/ddseo/revenue-graph2-brw.png' alt='' />
+        <div class='carousel-caption'>
+          <h4>Revenue</h4>
+          <p>Revenue break down by month and by source.</p>
+        </div>
+      </div>
+      <div class='item'>
+        <img src='/img/ddseo/traffic-graph-brw.png' alt='' />
+        <div class='carousel-caption'>
+          <h4>Monthly traffic</h4>
+          <p>Monthly traffic and a demonstration of the ability to annotate each graph / table.</p>
+        </div>
+      </div>
+      <div class='item'>
+        <img src='/img/ddseo/visit-graph2-brw.png' alt='' />
+        <div class='carousel-caption'>
+          <h4>Traffic sources</h4>
+          <p>Comparison of visits year to year and also based on the source of the sites traffic. (Total traffic, PPC, Organic, Direct and Referrals.)</p>
+        </div>
+      </div>
+    </div>
+    <a href='#ddseoCarousel' class='left carousel-control' data-slide='prev'>‹</a>
+    <a href='#ddseoCarousel' class='right carousel-control' data-slide='next'>›</a>
+</div><p>The Datadial Analytics tools is an ongoing project that is constantly being tweaked and updated, based on the needs of the users and new skills that I have learnt.</p>
+        </div>
+
+      </div>
+      <!-- footer -->
+      <footer class="footer">
+  <p>&copy; Jay Esco 2012
+    with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+    and <a href="http://pages.github.com/" target="_blank">GitHub Pages</a>
+  </p>
+</footer>
+      <!-- scripts -->
+      
+  <script src="http://code.jquery.com/jquery.min.js"></script>
+  <script src="/js/prettify.js"></script>
+  <script src="/js/bootstrap-transition.js"></script>
+  <script src="/js/bootstrap-alert.js"></script>
+  <script src="/js/bootstrap-modal.js"></script>
+  <script src="/js/bootstrap-dropdown.js"></script>
+  <script src="/js/bootstrap-scrollspy.js"></script>
+  <script src="/js/bootstrap-tab.js"></script>
+  <script src="/js/bootstrap-tooltip.js"></script>
+  <script src="/js/bootstrap-popover.js"></script>
+  <script src="/js/bootstrap-button.js"></script>
+  <script src="/js/bootstrap-collapse.js"></script>
+  <script src="/js/bootstrap-carousel.js"></script>
+  <script src="/js/bootstrap-typeahead.js"></script>
+
+    </div> <!-- /container -->
+    
+  </body>
+</html>
+

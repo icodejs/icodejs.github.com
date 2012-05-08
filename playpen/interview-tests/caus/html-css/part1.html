@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>HTML &amp; CSS</title>
+    <style type="text/css">
+        body {
+            /* reset */
+            margin: 0;
+            padding: 100px 100px 100px 100px;
+            background-color:#CCC;
+            overflow: hidden;
+        }
+        #container {
+            background-color:#fff;
+            height:100%;
+            position: relative;
+        }
+        #red, #green, #blue {
+            position: absolute;
+            top:25%;
+        }
+        #red {
+            background-color:red;
+            float: left;
+            width:100px;
+            height:200px;
+        }
+        #green {
+            background-color:green;
+
+            height:400px;
+            margin:0 100px;
+        }
+        #blue {
+            background-color:blue;
+            float: right;
+            width:10px;
+            height:300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="red">&nbsp;</div>
+        <div id="green">&nbsp;</div>
+        <div id="blue">&nbsp;</div>
+    </div>
+</body>
+</html>

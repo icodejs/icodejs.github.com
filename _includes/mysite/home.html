@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- header -->
+    {% include mysite/controls/header.html %}
+    <link href="/css/home.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- masthead -->
+    {% include mysite/controls/masthead.html %}
+    <div class="container">
+      <header class="jumbotron masthead">
+        <div class="inner">
+          <h1>{{ page.title }} <small>{{ page.tagline }}</small></h1>
+          {% if page.subTitle %}<p>{{ page.subTitle }}</p>{% endif %}
+        </div>
+      </header>
+
+      <section id="content" class="clearfix">
+        {{ content }}
+      </section>
+
+      <!-- footer -->
+      {% include mysite/controls/footer.html %}
+      <!-- scripts -->
+      {% include mysite/controls/scripts.html %}
+    </div> <!-- /container -->
+    {% include JB/analytics %}
+  </body>
+</html>

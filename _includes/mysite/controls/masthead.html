@@ -1,0 +1,22 @@
+{% assign home = "" %}
+
+{% if page.pageId == "home" %}{% assign home = "active" %}{% endif %}
+{% if page.pageId == "blog" %}{% assign blog = "active" %}{% endif %}
+{% if page.pageId == "contact" %}{% assign contact = "active" %}{% endif %}
+{% if page.pageId == "about" %}{% assign about = "active" %}{% endif %}
+{% if page.pageId == "portfolio" %}{% assign portfolio = "active" %}{% endif %}
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+      <!-- <ul class="nav">
+        <li class='{{ home }}'><a href="/">Home</a></li>
+        <li class='{{ blog }}'><a href="/blog/">Blog</a></li>
+        <li class='{{ contact }}'><a href="/contact/">Contact</a></li>
+        <li class='{{ about }}'><a href="/about/">About</a></li>
+        <li class='{{ portfolio }}'><a href="/portfolio/">Portfolio</a></li>
+      </ul> -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+---
+layout: default
+title: Blog
+pageId: "blog"
+---
+
+{% include JB/setup %}
+
+{% for post in site.posts limit:15 %}
+  {% include mysite/controls/excerpt.html %}
+{% endfor %}
+
+<div class="archive">
+  <a href="/archive.html">&laquo; Archives</a>
+</div>
