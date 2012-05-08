@@ -11,7 +11,7 @@
 
 (function($, window, document, undefined) {
 
-    var helpers = (function () {
+    (function () {
         if (typeof Array.prototype.contains  !== 'function') {                  // monkey path contains Array method (may need check if string and use toLowerCase())
             Array.prototype.contains = function (needle, prop) {
                 var i = this.length;
@@ -61,10 +61,12 @@
             },
             favorites: [],                                                      // save favorite background images
             win_width: 1024,
-            win_height: 1024
+            win_height: 1024,
+            interval_id: undefined,
+            loading: false
         };
 
-        var func = {
+        var helpers = {
             favorite: function (elem) {
                 if (elem && elem.data('img_dims')) {
                     var url = elem.data('img_dims').url;
@@ -76,10 +78,10 @@
                 }
             },
             email: function () {
-                console.log(emailed);
+                methods.set_status('email', 'Check your inbox! (To do)');
             },
             tweet: function () {
-                console.log(tweeted);
+                methods.set_status('tweet', 'tweet tweet (To do)');
             },
             save: function () {
                 // $.ajax({
@@ -89,9 +91,30 @@
                 //   success: success,
                 //   dataType: dataType
                 // });
+                methods.set_status('save', 'Your favorites list has been saved. (To do)');
             },
             help: function () {
-                methods.set_status('help', 'Use the spacebar to load new images');
+                methods.set_status('help', 'Use the spacebar to load new images. (To do)');
+            },
+            get_rnd_term: function () {
+                var idx  = 0,
+                    st   = options.search_terms,
+                    term = '';
+
+                if (st.length === 1) {
+                    return methods.parse_search_term(st[idx]);
+                } else {
+                    idx = methods.get_rnd_int(0, st.length -1);
+                    term = methods.parse_search_term(st[idx]);
+                    methods.set_status('get_rnd_term', 'search term: ' + term);
+                    return term;
+                }
+            },
+            parse_search_term: function (term) {
+                return term.split(' ').join('+');
+            },
+            get_rnd_int: function (min, max)  {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
             }
         };
 
@@ -100,6 +123,7 @@
             $bg_container = null,
             $keypress_detector = null,
             $status = null,
+            $slideshow = false,
             methods = {
                 init: function (options) {
                     var $window = $(window);
@@ -119,16 +143,47 @@
                                 }
                             });
 
+                        $bg_container = $('<div />')
+                            .addClass('bg_container')
+                            .height(vars.win_height)
+                            .hide()
+                            .prependTo($body);
+
                         $('.button')
                             .on('click', function (e) {
                                 e.preventDefault();
                                 $keypress_detector.focus();
                                 switch ($(this).attr('id').toLowerCase()) {
-                                    case 'fav':   func.favorite($body.find('.bg_container')); break;
-                                    case 'save':  func.save($body.find('.bg_container')); break;
-                                    case 'email': func.email($body.find('.bg_container')); break;
-                                    case 'tweet': func.tweet($body.find('.bg_container')); break;
-                                    case 'help': func.help($body.find('.bg_container')); break;
+                                    case 'fav':   helpers.favorite($body.find('.bg_container')); break;
+                                    case 'save':  helpers.save($body.find('.bg_container')); break;
+                                    case 'email': helpers.email($body.find('.bg_container')); break;
+                                    case 'tweet': helpers.tweet($body.find('.bg_container')); break;
+                                    case 'help':  helpers.help($body.find('.bg_container')); break;
+                                }
+                            });
+
+                        $('#example')
+                            .on('change', function () {
+                                var url = $(this).val();
+                                $('#terms').val(url)
+                                $keypress_detector.focus();
+                            });
+
+                        $('#slideshow')
+                            .on('change', function () {
+                                $slideshow = $(this).attr('checked') ? true : false;
+
+                                if ($slideshow) {
+                                     vars.interval_id = setInterval(function () {
+
+                                        // console.log('$slideshow: ', $slideshow);
+                                        // console.log('$.xhrPool.length: ', $.xhrPool.length);
+                                        // console.log('loading: ', vars.loading);
+
+                                        ($.xhrPool.length === 0 && !vars.loading) && methods.update_ui($bg_container)
+                                     }, 15000);
+                                } else {
+                                    clearInterval(vars.interval_id);
                                 }
                             });
 
@@ -138,10 +193,10 @@
                             .focus()
                             .on('keypress', function (e) {
                                 e.preventDefault();
-                                if (e.which === 32) {                           // stop user from sending too many http requests
+                                if (e.which === 32 && !$slideshow) {
                                     var now = new Date().getTime();
 
-                                    if (vars.timer.prev_req === 0) {
+                                    if (vars.timer.prev_req === 0) {            // stop user from sending too many http requests
                                         vars.timer.prev_req = now;
                                     } else {
                                         vars.timer.diff_ms = now - vars.timer.prev_req;
@@ -159,19 +214,14 @@
                             })
                             .appendTo($body);
 
-                        $bg_container = $('<div />')
-                            .addClass('bg_container')
-                            .height(vars.win_height)
-                            .hide()
-                            .prependTo($body);
-
                         methods.get_bg($bg_container);
                     });
                 },
                 get_bg: function (elem) {
                     if (vars.errors.length > 10) {                              // monitor the error being brought back for a url or keyword
-                        $body.find('.loader').fadeOut(1000, function () {
+                        !$slideshow && $body.find('.loader').fadeOut(1000, function () {
                             $(this).remove();
+                            vars.errors = [];
                         });
                         return methods.set_status('get_bg',
                                 'Insuffient images for the current URL. Please enter another URL or keyword(s)',
@@ -183,12 +233,14 @@
                         input  = $('#terms').val().toLowerCase(),
                         is_url = (input.indexOf('http://') >= 0 || input.indexOf('www') >= 0);
 
-                    $('.loader').length === 0 && $('<div />')
-                        .hide()
-                        .addClass('loader')
-                        .append($('<img />').attr('src', options.loading_image))
-                        .appendTo($body)
-                        .fadeIn();
+                    if ($('.loader').length === 0 && !$slideshow) {
+                        $('<div />')
+                            .hide()
+                            .addClass('loader')
+                            .append($('<img />').attr('src', options.loading_image))
+                            .appendTo($body)
+                            .fadeIn();
+                    }
 
                     methods.check_cache(input, function (i) {                   // check cache. if callback returns cached item index? Do stuff!
                         var items = vars.cache.items;
@@ -196,20 +248,20 @@
                         if (is_url && i >= 0 && items[i] && items[i].images.length > 0) {
                             var images = items[i].images;
 
-                            idx = methods.get_rnd_int(0, images.length -1);
+                            idx = helpers.get_rnd_int(0, images.length -1);
                             bg  = {url: images[idx].url};
 
                             methods.set_bg(bg, elem);
                             //console.log('using cache');
                         } else {
-                            vars.errors = [];                                   // clear error for this url
+                            vars.errors = [];                                   // clear error for this new url
 
                             methods.get_json(is_url, input, function (err, images) {
                                 if (err) {
                                     return methods.set_status('get_bg', err);
                                 }
                                 if (images && images.length > 0) {
-                                    idx = methods.get_rnd_int(0, images.length -1);
+                                    idx = helpers.get_rnd_int(0, images.length -1);
                                     bg  = {url: images[idx].url};
                                     methods.set_bg(bg, elem);
                                 }
@@ -252,11 +304,11 @@
                         url  = options.api_url + input;
                     } else {
                         url  = 'http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q='
-                        url += (input.length > 0 ? methods.parse_search_term(input) : methods.get_rnd_term())
+                        url += (input.length > 0 ? helpers.parse_search_term(input) : helpers.get_rnd_term())
                         url += '&imgsz=xlarge|xxlarge|huge'                     // |huge (make this optional)
                         url += '&imgtype=photo'
                         url += '&rsz=8'                                         // max results per page
-                        url += '&start=' + methods.get_rnd_int(1, 50);
+                        url += '&start=' + helpers.get_rnd_int(1, 50);
                     }
 
                     $.xhrPool.length > 0 && $.xhrPool.abortAll();               // abort all ajax requests if any
@@ -287,6 +339,7 @@
                                     return callback(null, data);
                                 } else {
                                     var results = data.responseData.results;
+
                                     if (results.length) {
                                         return callback(null, results);
                                     } else {
@@ -307,6 +360,8 @@
                 },
                 preload_img: function (src_url, delay, callback) {
                     var err;
+                    vars.loading = true;
+
                     $body.find('img.preloaded').remove();                       // remove this for now but in future we might keep them
 
                     $(new Image())                                              // load image, hide it, append to the body.
@@ -326,27 +381,28 @@
                                 w = img_size.split('x')[0];
                                 h = img_size.split('x')[1];
                             }
-
                             if (img.width  < w || img.height < h) { // filter out small image
                                 error = {
                                     func_name: 'preload_img',
                                     desc: 'image returned is too small'
                                 };
-
                                 vars.errors.push(error);
                                 return callback(error);
                             }
 
                             setTimeout(function () {
-                                $body.find('.loader').fadeOut(1000, function () {
-                                    $(this).remove();
-                                    callback(null,
-                                        {
-                                            width: img.width,
-                                            height: img.height,
-                                            url: src_url
-                                        });
-                                });
+                                var obj = {width: img.width, height: img.height, url: src_url};
+
+                                if (!$slideshow) {
+                                    $body.find('.loader').fadeOut(1000, function () {
+                                        $(this).remove();
+                                        vars.loading = false;
+                                        callback(null, obj);
+                                    });
+                                } else {
+                                    vars.loading = false;
+                                    callback(null, obj);
+                                }
                             }, delay);
                         })
                         .addClass('preloaded')
@@ -404,28 +460,6 @@
                                 + '</div>')
                         .fadeIn(1000))
                         .fadeIn();
-                },
-                get_rnd_term: function () {
-                    var idx  = 0,
-                        st   = options.search_terms,
-                        term = '';
-
-                    if (st.length === 1) {
-                        return methods.parse_search_term(st[idx]);
-                    } else {
-                        idx = methods.get_rnd_int(0, st.length -1);
-                        term = methods.parse_search_term(st[idx]);
-
-                        methods.set_status('get_rnd_term', 'search term: ' + term);
-
-                        return term;
-                    }
-                },
-                parse_search_term: function (term) {
-                    return term.split(' ').join('+');
-                },
-                get_rnd_int: function (min, max)  {
-                    return Math.floor(Math.random() * (max - min + 1)) + min;
                 },
                 destroy: function () {
                     return base.each(function () {
