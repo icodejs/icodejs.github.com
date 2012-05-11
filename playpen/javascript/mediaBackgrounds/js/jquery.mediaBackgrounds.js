@@ -204,8 +204,6 @@
                 interaction.view_favorites_show(container_config, function () {
                     interaction.view_favorites_button(btn_config);
                 });
-
-                console.log('state in view_favorites function: ', $pe.favorite_controls_view_button.data('state'));
             },
             view_favorites_button: function (obj) {
                 obj.element.data({state: obj.state});
@@ -371,7 +369,7 @@
                 get_bg: function (elem) {
                     // Monitor the error being brought back for a url or keyword.
                     if (vars.errors.length > 10) {
-                        !$slideshow && $pe.body.find('.loader').fadeOut(1000, function () {
+                        !vars.slideshow && $pe.body.find('.loader').fadeOut(1000, function () {
                             $(this).remove();
                             vars.errors = [];
                         });
