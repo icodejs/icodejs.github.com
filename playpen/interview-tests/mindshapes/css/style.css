@@ -394,6 +394,14 @@ html.cssgradients #innerContainer:before {
     color: #999999;
     float:right;
 }
+html.lt-ie8 #mainContent li {
+  position:relative;
+}
+html.lt-ie8 #mainContent li span.workspace {
+  float:none;
+  position:absolute;
+  left:0;
+}
 html.borderradius #mainContent li img {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
