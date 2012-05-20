@@ -1,0 +1,24 @@
+{
+    "data" : [
+        {
+            "type" : "MS Word",
+            "filename" : "Les Savy Fav",
+            "description" : "Vivamus eget odio",
+            "size" : "600 KB"
+        },
+        {
+            "type" : "MS Excel",
+            "filename" : "Oneohtrix Point Never",
+            "description" : "Sed cursus luctus",
+            "size" : "300 MB"
+        },
+        {
+            "type" : "PDF",
+            "filename" : "Dinosaur Jr",
+            "description" : "Vivamus sagittis mauris",
+            "size" : "350 MB"
+        }
+    ],
+    "error" : false,
+    "code" : 200
+}

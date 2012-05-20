@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+    This will add classes to the HTML tag that we can test against in the
+    stylesheet for conditional styles.
+-->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <!-- Force IE9 to use use IE9 mode or the Chrome frame if it is installed -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mindshapes UI Test</title>
+
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width">
+
+    <!-- style.css has my CSS and HTML5 boilerplate reset styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--
+    * All JavaScript at the bottom, except this Modernizr build.
+    Modernizr enables HTML5 elements & feature detects for optimal performance.
+
+    * Modernizr makes the new HTML5 elements available for CSS styling in
+    Internet Explorer, so that you can start using their improved semantics
+    right away.
+
+    * Inspect the HTML tag in firebug to see a full list of supported HTML5 and
+    CSS3 capabilities
+
+    * Modernizr uses feature detection to know what is supported if it is supported
+    it add a related class to the HTML tag. This way when you right a style to
+    target specific feature you can append it class so that only browser that
+    support that feature will be able to use it.
+    -->
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+    <section id="container">
+        <header></header>
+        <section id="innerContainer">
+            <section id="content" class="clearfix">
+                <section id="mainContent">
+                    <h1>Page Title</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vivamus eget odio mi, a placerat neque. Vivamus sagittis
+                        mauris id sapien porttitor venenatis. Suspendisse quam
+                        urna, tincidunt ac sollicitudin vitae, aliquam eu nunc.
+                        Sed cursus luctus risus, eu adipiscing diam sollicitudin
+                        sit amet.
+                    </p>
+
+                    <h2>What's New</h2>
+                    <ul>
+                        <li>
+                            <img src="img/avatar.png" alt="Avatar" text="Picture of Paul McFlurry">
+                            <span>Paul McFlurry added a new file <a href="#">Big Bad Logo.pdf</a></span>
+                            <span class="workspace">Big Bad Redesign Workspace</span>
+                        </li>
+                        <li>
+                            <img src="img/avatar.png" alt="Avatar" text="Picture of Paul McFlurry">
+                            <span>Paul McFlurry added a new comment <a href="#">"I really don't think this logo is..."</a></span>
+                            <span class="workspace">Big Bad Redesign Workspace</span>
+                        </li>
+                        <li>
+                            <img src="img/avatar.png" alt="Avatar" text="Picture of Paul McFlurry">
+                            <span>Paul McFlurry added a discussion <a href="#">Logo First Impressions</a></span>
+                            <span class="workspace">Big Bad Redesign Workspace</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <table class="fileList" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th width="4%">&nbsp;</th>
+                            <th width="5%">&nbsp;</th>
+                            <th width="37%">Title</th>
+                            <th width="37%">Description</th>
+                            <th width="10%">Size</th>
+                            <th width="4%">&nbsp;</th>
+                            <th width="3%">&nbsp;</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section> <!-- end content -->
+
+            <aside>
+                <!-- tabs -->
+                <ul id="tabs" class="clearfix">
+                    <li class="active focus"><a href="#tab1">TAB1</a></li>
+                    <li><a href="#tab2">TAB2</a></li>
+                    <li><a href="#tab3">TAB3</a></li>
+                </ul>
+
+                <!-- tab content -->
+                <section id="tab1" class="tabContent">
+                    <h3>Heading 1 - Tab 1</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vivamus eget odio mi, a placerat neque. Vivamus sagittis
+                        mauris id sapien porttitor venenatis.
+                    </p>
+                    <p>
+                        Suspendisse quam urna, tincidunt ac sollicitudin vitae,
+                        aliquam eu nunc. Sed cursus luctus risus, eu adipiscing diam
+                        sollicitudin sit amet.
+                    </p>
+                    <fieldset>
+                        <label for="search">
+                            <!-- HTML5 Input Type = search 'To prompt users to enter text that they want to search for.' -->
+                            <!-- HTML5 Attribute = Placeholder 'Gives the user a hint about what sort of data they should enter.' -->
+                            <input type="search" class="textbox" id="search" placeholder="Search...">
+                        </label>
+                    </fieldset>
+                </section>
+                <section id="tab2" class="tabContent" style="display:none;">
+                    <h3>Heading 1 - Tab 2</h3>
+                </section>
+                <section id="tab3" class="tabContent" style="display:none;">
+                    <h3>Heading 1 - Tab 3</h3>
+                </section>
+            </aside> <!-- end side -->
+        </section>
+    </section>
+
+    <!-- JavaScript at the bottom for fast page loading -->
+
+    <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+    <!--
+        // is not a mistake. Use this to maintain the correct protocol. So if you
+        in https, get the https version of jQuery from the CDN.
+     -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+    <script src="js/index.js"></script>
+</body>
+</html>
+
+<!--
+    Notes : -
+
+    *   Use html5 boiler plate reset stylesheet used to normalise style before
+    applying my own.
+
+    *   <header> used to store MinsShapes logo
+
+    *   <aside> used to store tabs and tab content.
+
+    *   <section> is being used over the div because it represents a generic
+    section of a document or application. A section, in this context, is a
+    thematic grouping of content, typically with a heading. <div>, on the other
+    hand, does not convey any meaning, aside from any found in its class, lang
+    and title attributes.
+
+ -->

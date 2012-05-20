@@ -1,0 +1,212 @@
+body {
+    color: #444444;
+    text-align:center;
+    padding-top:45px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:13px;
+    font-weight:200;
+}
+h1, h2 {
+    margin-top:30px;
+}
+h2 {
+    margin-bottom:15px;
+}
+p {
+    margin-bottom:30px;
+}
+ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+a {
+    color:#078cd1;
+    text-decoration:none;
+}
+th, td, a, li, input {
+   line-height: 18px;
+   vertical-align: middle;
+}
+header {
+    background: transparent url(../img/mindshapes-logo.png) no-repeat 30px;
+    height:65px;
+}
+
+/*
+    classes
+*/
+
+input.textbox {
+    border: 1px solid #9fc3d4;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    height: 16px;
+    padding: 4px;
+    margin: 0;
+    font-size:11px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #dddddd;
+}
+/* for ie 7 (posibly 8) */
+input.textbox {
+    background: white url(../img/textbox-bg.jpg) repeat-x 0 0;
+}
+table.fileList {
+    margin-bottom:130px;
+}
+table a.emailLink { /* add css3 gradient */
+    display:block;
+    width:32px;
+    height:26px;
+    background:#f0f0f0 url(../img/mailicon.png) no-repeat center;
+    border:1px solid #cccccc;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    margin:auto;
+}
+td.icon {
+    background-position: 1px 12px;
+    background-repeat:no-repeat;
+    background-colour:transparent;
+}
+td.msword {
+    background-image: url(../img/wordicon.png);
+}
+td.msexcel {
+    background-image: url(../img/excelicon.png);
+}
+td.pdf {
+    background-image: url(../img/pdficon.png);
+}
+
+/*
+    sections
+*/
+
+#container {
+    border:1px solid #cccccc;
+    -webkit-border-radius: 6px 6px 0 6px;
+    -moz-border-radius: 6px 6px 0 6px;
+    -o-border-radius: 6px 6px 0 6px;
+    border-radius: 6px 6px 0 6px;
+    margin:0 auto -6px;
+    text-align:left;
+    width:980px;
+}
+#innerContainer {
+    background: transparent url(../img/top-bar.jpg) repeat-x 0 0; /* move to ie7 style sheet use :after for other browsers */
+    border-top:1px solid #9fc3d4;
+    padding:33px 0 0 0;
+    position:relative;
+    overflow: hidden;
+    width: 100%;
+}
+#content {
+    float:left;
+    width:738px;
+}
+#content table {
+    width:738px;
+}
+#content p, #side p {
+    /*font-size:13px;*/
+}
+#mainContent p {
+    text-align:justify;
+    width:80%;
+}
+#mainContent {
+    padding:0 32px;
+}
+#mainContent ul {
+    margin-bottom:30px;
+}
+#mainContent li {
+    border-top:1px dashed #cccccc;
+    height:50px;
+    line-height:50px;
+}
+#mainContent li img {
+    border:1px solid #999999;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+    margin-right:10px;
+    padding:2px;
+}
+#mainContent li span.workspace {
+    color: #999999;
+    float:right;
+}
+#content thead {
+    background: transparent url(../img/table-bar.jpg) repeat-x 0 0; /* move to ie7 style sheet use :after for other browsers */
+    border-top:1px solid #cccccc;
+    border-bottom:1px solid #cccccc;
+    height:15px;
+}
+#mainContent ul, #content table {
+    font-size:12px;
+}
+
+#content tbody td {
+    border-bottom:1px dashed #cccccc;
+    height:50px;
+    line-height:50px;
+}
+#content tbody td:first-child, #content tbody td:last-child  {
+    width:40px;
+    border:none;
+}
+
+/*
+    side
+*/
+
+#side {
+    background-color:#ebf6fb;
+    border-left:1px solid #9fc3d4;
+    width:206px;
+    height:100%;
+    min-height:100%;
+    padding:35px 18px;
+    position: absolute;
+    right: 0;
+}
+#side input.textbox {
+    width:196px;
+}
+#tabs {
+    position:absolute;
+    top:-34px;
+    left:-1px;
+}
+#tabs li {
+    float: left;
+    background-color: #EBF6FB;
+    border-left:1px solid #9fc3d4;
+    width:80px;
+    height:33px;
+    line-height:36px;
+    text-align:center;
+}
+#tabs li.active {
+    height:34px;
+}
+#tabs li.focus a {
+    color:#AEB3A0;
+}
+#tabs li a, #tabs li.active a {
+    color:#444444;
+}
+#tabs li a {
+    text-transform:uppercase;
+    font-size:10px;
+    padding:8px 24px;
+}
