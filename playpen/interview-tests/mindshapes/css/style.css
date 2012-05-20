@@ -400,7 +400,8 @@ html.lt-ie8 #mainContent li {
 html.lt-ie8 #mainContent li span.workspace {
   float:none;
   position:absolute;
-  left:0;
+  right:0;
+  top:20px;
 }
 html.borderradius #mainContent li img {
     -webkit-border-radius: 2px;
