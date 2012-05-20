@@ -293,12 +293,15 @@ table a.emailLink {
     height:26px;
     text-align:center;
     line-height:26px;
-    background:#f0f0f0 url(../img/mailicon.png) no-repeat center; /* for ie7, this will be overriden if cssgradients are available */
     border:1px solid #cccccc;
     margin:auto;
 }
 html.lt-ie8 table a.emailLink {
-  line-height:50px;
+  background:#f0f0f0 url(../img/mailicon.png) no-repeat center; /* for ie7, this will be overriden if cssgradients are available */
+  border:none;
+}
+html.lt-ie8 table a.emailLink img {
+    display:none;
 }
 /* This will only be applied to browsers that support border radius */
 html.borderradius table a.emailLink {
