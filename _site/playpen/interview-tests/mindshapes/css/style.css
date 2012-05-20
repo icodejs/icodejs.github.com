@@ -219,6 +219,7 @@ td { vertical-align: top; }
    ========================================================================== */
 
 body {
+    background-color:#fff;
     color: #444444;
     text-align:center;
     padding-top:45px;
@@ -323,11 +324,11 @@ html.lt-ie8 {
 td.icon {
     background-position: 1px 12px;
     background-repeat:no-repeat;
-    background-colour:transparent;
+    background-color:transparent;
 }
-td.msword { background-image : url(../img/wordicon.png); }
-td.msexcel { background-image: url(../img/excelicon.png); }
-td.pdf { background-image    : url(../img/pdficon.png); }
+td.msword { background-image : url('../img/wordicon.png'); }
+td.msexcel { background-image: url('../img/excelicon.png'); }
+td.pdf { background-image    : url('../img/pdficon.png'); }
 
 /*
     sections
