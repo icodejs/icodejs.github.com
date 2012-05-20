@@ -297,7 +297,7 @@ table a.emailLink {
     margin:auto;
 }
 html.lt-ie8 table a.emailLink {
-  background:#f0f0f0 url(../img/mailIcon.png) no-repeat center; /* for ie7, this will be overriden if cssgradients are available */
+  background:#f0f0f0 url(../img/mailicon-ie7-8.jpg) no-repeat center; /* for ie7, this will be overriden if cssgradients are available */
   border:none;
 }
 html.lt-ie8 table a.emailLink img {
