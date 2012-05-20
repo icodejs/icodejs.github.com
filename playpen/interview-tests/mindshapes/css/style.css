@@ -223,7 +223,7 @@ html, body {
 body {
     color: #444444;
     text-align:center;
-    padding-top:45px;
+    padding:45px 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:13px;
 }
@@ -324,10 +324,6 @@ html.cssgradients table a.emailLink {
 }
 html.cssgradients table a.emailLink img { margin:auto; }
 /* ie7 fallback due to no rounded corners or gradient */
-html.lt-ie8 {
-  border:none;
-  background:#f0f0f0 url(../img/mailIcon-ie7-8.jpg) no-repeat center;
-}
 td.icon {
     background-position: 1px 12px;
     background-repeat:no-repeat;
