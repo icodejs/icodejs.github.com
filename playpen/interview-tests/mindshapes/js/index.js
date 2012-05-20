@@ -39,7 +39,7 @@ $(function() {
                             '<td><a href="#">' + row.filename + '</a></td>' +
                             '<td>' + row.description + '</td>' +
                             '<td>' + row.size  + '</td>' +
-                            '<td><a class="emailLink" href="mailto:#"><img src="img/mailicon.png" /></a></td>' +
+                            '<td><a class="emailLink" href="mailto:#"><img src="img/mailIcon.png" /></a></td>' +
                             '<td>&nbsp;</td>' +
                         '</tr>';
             }
