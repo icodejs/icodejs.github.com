@@ -34,13 +34,13 @@ $(function() {
                 // concatenate this onto the html string variable.
 
                 html += '<tr>' +
-                            '<td>&nbsp;</td>' +
+                            '<td class="first">&nbsp;</td>' +
                             '<td class="icon ' + klass + '"></td>' +
                             '<td><a href="#">' + row.filename + '</a></td>' +
                             '<td>' + row.description + '</td>' +
                             '<td>' + row.size  + '</td>' +
                             '<td><a class="emailLink" href="mailto:#"><img src="img/mailIcon.png" /></a></td>' +
-                            '<td>&nbsp;</td>' +
+                            '<td class="last">&nbsp;</td>' +
                         '</tr>';
             }
             // the table element is hidden in the HTML by default, so once the

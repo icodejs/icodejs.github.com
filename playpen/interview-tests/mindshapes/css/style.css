@@ -428,11 +428,11 @@ html.cssgradients #content thead  {
     height:50px;
     line-height:50px;
 }
-#content tbody td:first-child, #content tbody td:last-child  {
+/* first and last classes are added for IE7 */
+#content tbody td:first-child, #content tbody td:last-child, html.lt-ie8 #content tbody td.first, html.lt-ie8 #content tbody td.last {
     width:40px;
     border:none;
 }
-
 /*
    aside
 */
