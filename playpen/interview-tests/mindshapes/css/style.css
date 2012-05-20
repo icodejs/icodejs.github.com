@@ -217,9 +217,10 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author: Tahir (Tyrone) Joseph
    ========================================================================== */
-
-body {
+html, body {
     background-color:#fff;
+}
+body {
     color: #444444;
     text-align:center;
     padding-top:45px;
