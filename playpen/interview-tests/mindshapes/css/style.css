@@ -297,6 +297,9 @@ table a.emailLink {
     border:1px solid #cccccc;
     margin:auto;
 }
+html.lt-ie8 table a.emailLink {
+  line-height:50px;
+}
 /* This will only be applied to browsers that support border radius */
 html.borderradius table a.emailLink {
     -webkit-border-radius: 3px;
