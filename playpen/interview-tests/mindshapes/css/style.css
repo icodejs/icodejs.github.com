@@ -472,6 +472,9 @@ aside #tabs li {
     line-height:36px;
     text-align:center;
 }
+html.lt-ie8 aside #tabs li {
+  background-color:#EBF6FB;
+}
 aside #tabs li.active {
     background-color: #f7fcfe;
     height:34px;
