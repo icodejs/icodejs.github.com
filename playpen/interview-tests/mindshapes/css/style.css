@@ -401,7 +401,7 @@ html.lt-ie8 #mainContent li span.workspace {
   float:none;
   position:absolute;
   right:0;
-  top:20px;
+  top:0;
 }
 html.borderradius #mainContent li img {
     -webkit-border-radius: 2px;
@@ -483,6 +483,7 @@ aside #tabs li {
 }
 html.lt-ie8 aside #tabs li {
   background-color:#EBF6FB;
+  line-height:50px;
 }
 aside #tabs li.active {
     background-color: #f7fcfe;
