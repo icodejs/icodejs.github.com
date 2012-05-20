@@ -326,9 +326,9 @@ td.icon {
     background-repeat:no-repeat;
     background-color:transparent;
 }
-td.msword { background-image : url('../img/wordicon.png'); }
-td.msexcel { background-image: url('../img/excelicon.png'); }
-td.pdf { background-image    : url('../img/pdficon.png'); }
+td.msword { background-image : url(../img/wordicon.png); }
+td.msexcel { background-image: url(../img/excelicon.png); }
+td.pdf { background-image    : url(../img/pdficon.png); }
 
 /*
     sections
