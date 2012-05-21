@@ -84,14 +84,14 @@ $(function() {
         //e.preventDefault();
 
         var
-        code       = (e.keyCode ? e.keyCode : e.which),
-        len        = $tabs.length,
-        $activeTab = $tabs.parent().filter('.active'),
+        code        = (e.keyCode ? e.keyCode : e.which),
+        len         = $tabs.length,
+        $activeTab  = $tabs.parent().filter('.active'),
         $focusedTab = $tabs.parent().filter('.focus'),
         focusIndex  = $focusedTab.index(),
-        activeIndex  = $activeTab.index(),
-        newIndex   = -1,
-        shiftKey   = e.shiftKey;
+        activeIndex = $activeTab.index(),
+        newIndex    = -1,
+        shiftKey    = e.shiftKey;
 
         if (code === 37 || code === 39) {
 
