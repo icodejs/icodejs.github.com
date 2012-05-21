@@ -217,12 +217,13 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author: Tahir (Tyrone) Joseph
    ========================================================================== */
-
-body {
+html, body {
     background-color:#fff;
+}
+body {
     color: #444444;
     text-align:center;
-    padding-top:45px;
+    padding:45px 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:13px;
 }
@@ -293,9 +294,15 @@ table a.emailLink {
     height:26px;
     text-align:center;
     line-height:26px;
-    background:#f0f0f0 url(../img/mailicon.png) no-repeat center; /* for ie7, this will be overriden if cssgradients are available */
     border:1px solid #cccccc;
     margin:auto;
+}
+html.lt-ie8 table a.emailLink {
+  background:#f0f0f0 url(../img/mailicon-ie7-8.jpg) no-repeat center; /* for ie7, this will be overriden if cssgradients are available */
+  border:none;
+}
+html.lt-ie8 table a.emailLink img {
+    display:none;
 }
 /* This will only be applied to browsers that support border radius */
 html.borderradius table a.emailLink {
@@ -317,18 +324,14 @@ html.cssgradients table a.emailLink {
 }
 html.cssgradients table a.emailLink img { margin:auto; }
 /* ie7 fallback due to no rounded corners or gradient */
-html.lt-ie8 {
-  border:none;
-  background:#f0f0f0 url(../img/mailicon-ie7-8.jpg) no-repeat center;
-}
 td.icon {
     background-position: 1px 12px;
     background-repeat:no-repeat;
     background-color:transparent;
 }
-td.msword { background-image : url('../img/wordicon.png'); }
-td.msexcel { background-image: url('../img/excelicon.png'); }
-td.pdf { background-image    : url('../img/pdficon.png'); }
+td.msword { background-image : url(../img/wordIcon.png); }
+td.msexcel { background-image: url(../img/excelIcon.png); }
+td.pdf { background-image    : url(../img/pdfIcon.png); }
 
 /*
     sections
@@ -394,6 +397,15 @@ html.cssgradients #innerContainer:before {
     color: #999999;
     float:right;
 }
+html.lt-ie8 #mainContent li {
+  position:relative;
+}
+html.lt-ie8 #mainContent li span.workspace {
+  float:none;
+  position:absolute;
+  right:0;
+  top:0;
+}
 html.borderradius #mainContent li img {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -428,11 +440,11 @@ html.cssgradients #content thead  {
     height:50px;
     line-height:50px;
 }
-#content tbody td:first-child, #content tbody td:last-child  {
+/* first and last classes are added for IE7 */
+#content tbody td:first-child, #content tbody td:last-child, html.lt-ie8 #content tbody td.first, html.lt-ie8 #content tbody td.last {
     width:40px;
     border:none;
 }
-
 /*
    aside
 */
@@ -471,6 +483,10 @@ aside #tabs li {
     height:33px;
     line-height:36px;
     text-align:center;
+}
+html.lt-ie8 aside #tabs li {
+  background-color:#EBF6FB;
+  line-height:50px;
 }
 aside #tabs li.active {
     background-color: #f7fcfe;

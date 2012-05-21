@@ -3,7 +3,7 @@ $(function() {
     // cache query selectors
     var
     $fileListTable        = $('table.fileList'),
-    $tabs                 = $('#tabs li a')
+    $tabs                 = $('#tabs li a'),
     $tabContentContainers = $('.tabContent');
 
     // Load json encoded data from the response.json file and assign it to a variable.
@@ -34,13 +34,13 @@ $(function() {
                 // concatenate this onto the html string variable.
 
                 html += '<tr>' +
-                            '<td>&nbsp;</td>' +
+                            '<td class="first">&nbsp;</td>' +
                             '<td class="icon ' + klass + '"></td>' +
                             '<td><a href="#">' + row.filename + '</a></td>' +
                             '<td>' + row.description + '</td>' +
                             '<td>' + row.size  + '</td>' +
-                            '<td><a class="emailLink" href="mailto:#"><img src="img/mailicon.png" /></a></td>' +
-                            '<td>&nbsp;</td>' +
+                            '<td><a class="emailLink" href="mailto:#"><img src="img/mailIcon.png" /></a></td>' +
+                            '<td class="last">&nbsp;</td>' +
                         '</tr>';
             }
             // the table element is hidden in the HTML by default, so once the
@@ -57,7 +57,7 @@ $(function() {
 
         // cache query selectors
         var
-        $this   = $(this)
+        $this   = $(this),
         $parent = $this.parent();
 
         // active and focus classes was added to the li markup for more flexiblity with
@@ -94,17 +94,18 @@ $(function() {
         shiftKey   = e.shiftKey;
 
         if (code === 37 || code === 39) {
+
             if (code === 37) { // left key
 
                 // if the activeIndex is the lowest value then do nothing, else
                 // decrement by oneactiveIndex
-                newIndex = activeIndex === 0 ? activeIndex : activeIndex - 1
+                newIndex = activeIndex === 0 ? activeIndex : activeIndex - 1;
 
             } else if (code === 39) { // right key
 
                 // if the activeIndex is the highest value then do nothing, else
                 // increment by one.
-                newIndex = activeIndex === len -1 ? activeIndex : activeIndex + 1
+                newIndex = activeIndex === len -1 ? activeIndex : activeIndex + 1;
             }
 
             // trigger the click event of the next tab, if the index has changed.
@@ -116,10 +117,11 @@ $(function() {
         // when the tab key is clicked move along the tabs and update the focus
         // class accordingly
         if (code === 9) {
+
             if (shiftKey) { // left tab
-                newIndex = focusIndex === 0 ? focusIndex : focusIndex - 1
+                newIndex = focusIndex === 0 ? focusIndex : focusIndex - 1;
             } else {  // right tab
-                newIndex = focusIndex === len -1 ? focusIndex : focusIndex + 1
+                newIndex = focusIndex === len -1 ? focusIndex : focusIndex + 1;
             }
 
             newIndex !== focusIndex && $tabs.parent()
