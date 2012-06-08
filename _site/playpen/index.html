@@ -138,29 +138,9 @@
 <h2 id='create_object_function'>Create object function</h2>
 
 <p>This code creates a Javascript object (dah)!</p>
-<div class='highlight'><pre><code class='javascript'><span class='lineno'> 1</span> <span class='kd'>function</span> <span class='nx'>Route</span><span class='p'>(</span><span class='nx'>routes</span><span class='p'>)</span> <span class='p'>{</span>
-<span class='lineno'> 2</span> 
-<span class='lineno'> 3</span>   <span class='k'>this</span><span class='p'>.</span><span class='nx'>routes</span> <span class='o'>=</span> <span class='nx'>routes</span> <span class='o'>||</span> <span class='p'>{};</span>
-<span class='lineno'> 4</span> 
-<span class='lineno'> 5</span>   <span class='k'>this</span><span class='p'>.</span><span class='nx'>notFound</span> <span class='o'>=</span> <span class='kd'>function</span> <span class='p'>(</span><span class='nx'>res</span><span class='p'>)</span> <span class='p'>{</span>
-<span class='lineno'> 6</span>     <span class='nx'>res</span><span class='p'>.</span><span class='nx'>writeHead</span><span class='p'>(</span><span class='mi'>404</span><span class='p'>,</span> <span class='p'>{</span>
-<span class='lineno'> 7</span>       <span class='s2'>&quot;Content-Type&quot;</span><span class='o'>:</span> <span class='s2'>&quot;text/plain&quot;</span>
-<span class='lineno'> 8</span>     <span class='p'>});</span>
-<span class='lineno'> 9</span>     <span class='nx'>res</span><span class='p'>.</span><span class='nx'>write</span><span class='p'>(</span><span class='s2'>&quot;404 Not Found\n&quot;</span><span class='p'>);</span>
-<span class='lineno'>10</span>     <span class='nx'>res</span><span class='p'>.</span><span class='nx'>end</span><span class='p'>();</span>
-<span class='lineno'>11</span>   <span class='p'>};</span>
-<span class='lineno'>12</span> 
-<span class='lineno'>13</span> <span class='p'>}</span>
-</code></pre>
-</div>
+
 <h2 id='highlighting_test'>Highlighting test</h2>
-<div class='highlight'><pre><code class='javascript'><span class='lineno'>1</span> <span class='kd'>function</span> <span class='nx'>object</span><span class='p'>(</span><span class='nx'>o</span><span class='p'>)</span> <span class='p'>{</span>
-<span class='lineno'>2</span>   <span class='kd'>function</span> <span class='nx'>F</span><span class='p'>()</span> <span class='p'>{}</span>
-<span class='lineno'>3</span>   <span class='nx'>F</span><span class='p'>.</span><span class='nx'>prototype</span> <span class='o'>=</span> <span class='nx'>o</span><span class='p'>;</span>
-<span class='lineno'>4</span>   <span class='k'>return</span> <span class='k'>new</span> <span class='nx'>F</span><span class='p'>();</span>
-<span class='lineno'>5</span> <span class='p'>}</span>
-</code></pre>
-</div>
+
 <h2 id='start_dev_server'>Start dev server</h2>
 
 <pre><code>jekyll --server</code></pre>
