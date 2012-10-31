@@ -6,6 +6,7 @@
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/css/docs.css" rel="stylesheet">
     <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/prettify.js"></script>
     <link rel="stylesheet" type="text/css" href="../css/base.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
   </head>
@@ -72,191 +73,7 @@
 
       <div class="sourceCode" style="display:none;">
         <h3>Source code</h3>
-        <pre class="prettyprint">
-
-        /**
-         * Self executing function with sand boxed copies of global objects.
-         * @param  {object} window    - window object
-         * @param  {object} document  - document object
-         * @param  {object} $         - jQuery object
-         * @param  {undefined} undefined - A truly undefined value to use for comparisons.
-         */
-        (function (window, document, $, undefined) {
-          'use strict'; // For code that is ES5 compatible.
-
-          var
-          Highcharts = window.Highcharts,
-          tableId    = '#rainfall',
-          chartId    = 'rainfallChart',
-          chartTitle = 'Monthly Average Rainfall',
-          yAxisTitle = 'Rainfall (mm)';
-
-
-          $(function () {
-
-            // Cached jQuery objects and variables that are use more than once.
-            var
-            $table    = $(tableId),
-            $trMonths = $table.find('tbody tr'),
-            years     = getYears();
-
-            $('button').on('click', function (e) {
-              e.preventDefault();
-              renderChart(getMonths(), getSeries());
-            });
-
-
-            function getMonths() {
-              /**
-               * Get months names from each table row and return an array of strings.
-               * @param  {HTMLTableRowElement} elem
-               * @return {array} - String month names.
-               */
-              return $.map($trMonths, function (elem) {
-                return $(elem).data('month'); // Extract the month name from the data attribute.
-              })
-            }
-
-
-            function getYears() {
-              /**
-               * Get years from each table heading and return an array of strings.
-               * @param  {HTMLTableRowElement} elem
-               * @return {array} - String years.
-               */
-              return $.map($table.find('thead th'), function (elem) {
-                return $(elem).text();
-              })
-            }
-
-
-            function getSeries() {
-              /**
-               * Loop through each year and use the index to grab all the data for.
-               * each month e.g. 2011 = index 0 and 2012 = index 1.
-               * @return {array} - Containing series objects that we will send to Highcharts.
-               */
-              var
-              i,
-              yrs       = years.length,
-              chartData = [],
-              config    = {
-                draggableY : true,
-                dragMinY   : 0,
-                type       : 'column'
-              };
-
-              // iterate the loop for every year
-              for (i = 0; i < yrs; i += 1) {
-                var monthData = [];
-
-                // Loop through all inputs but only grab the one in the year we
-                // are interested in.
-                $trMonths.each(function () {
-                  var $inputs = $(this).find('td input');
-                  (function (index) {
-                    var rainfall = parseInt($inputs.eq(index).val());
-
-                    // Validate if the value is less than 0, and if so pass in 0.
-                    monthData.push(rainfall >= 0 ? rainfall : 0);
-                  }(i)); // Current index passed in using a closure to maintain scope.
-                });
-
-                // Create a new object by extending the base config object using
-                // jQuery extend and add this to the array that will be returned.
-                chartData.push($.extend({}, config, { data: monthData, name: years[i] }));
-              }
-              return chartData;
-            }
-
-
-            /**
-             * This function is called every time the user change the a chart value
-             * with their mouse.
-             * @param  {string} year     - year of the chart value
-             * @param  {string} month    - month of the chart value
-             * @param  {string} newValue - new value on mouseup
-             */
-            function updateTable(year, month, newValue) {
-              var i, yrs = years.length;
-
-              for (i = 0; i < yrs; i += 1) {
-                // Loop through years and do a comparison to get he correct index.
-                if ((+years[i]) === (+year)) {
-
-                  $trMonths.each(function () {
-                    var $this = $(this), $inputs;
-
-                    // Find the correct month row
-                    if ($this.data('month') === month) {
-
-                      // Based on the year index, update the right input value with
-                      // the new value.
-                      $this.find('td input').eq(i).val(newValue);
-                    }
-                  });
-                }
-              }
-            }
-
-
-            /**
-             * Highcharts is a highly customisable charting library:
-             * http://www.highcharts.com/demo/bar-basic
-             *
-             * I am using a 'work around' / shim js/highchartDraggableShim.min.js
-             * to add click and drag events so that the chart values can be updated.
-             */
-
-            /**
-             * Renders the chart and displays it on the page
-             * @param  {array} categories - Array of strings
-             * @param  {array} series     - An array of objects containing graph data
-             */
-            function renderChart(categories, series) {
-              var chart = new Highcharts.Chart({
-                chart: {
-                  renderTo: chartId,
-                  type: 'column',
-                  animation: false
-                },
-                title: {
-                  text: chartTitle
-                },
-                yAxis: {
-                  min: 0,
-                  title: {
-                      text: yAxisTitle
-                  }
-                },
-                xAxis: {
-                  categories: categories
-                },
-                credits:{
-                  enabled: false
-                },
-                plotOptions: {
-                  series: {
-                    cursor: 'ns-resize',
-                    point: {
-                      events: {
-                        drop: function() {
-                          updateTable(this.series.name, this.category, Highcharts.numberFormat(this.y, 2));
-                        }
-                      }
-                    }
-                  }
-                },
-                tooltip: {
-                  yDecimals: 2
-                },
-                series: series
-              });
-            }
-
-          }); // end jquery
-
-        }(window, document, jQuery));
+        <pre class="prettyprint lang-js">
 
         </pre>
       </div>
@@ -265,7 +82,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
     <script src="js/highchartDraggableShim.min.js"></script>
-    <script>
+    <script id="script">
 
       /**
        * Self executing function with sand boxed copies of global objects.
@@ -296,7 +113,13 @@
           $('button').on('click', function (e) {
             e.preventDefault();
             renderChart(getMonths(), getSeries());
-            $('.sourceCode').fadeIn();
+
+            // display source code
+            $('.sourceCode')
+              .find('pre')
+                .text($('#script').text())
+              .end()
+              .fadeIn();
           });
 
 
@@ -453,5 +276,6 @@
       }(window, document, jQuery));
 
     </script>
+
   </body>
 </html>
